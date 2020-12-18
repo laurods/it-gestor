@@ -10,7 +10,9 @@
     "mongodb": "^3.5.9",
     "next": "latest",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-dropzone": "^11.2.4",
+    "styled-components": "^5.2.1"
   },
   "license": "MIT"
 }
