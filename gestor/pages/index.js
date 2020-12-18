@@ -162,7 +162,8 @@ class Home extends Component{
      return row;
    });   
    
- //console.log(typeof nfList);  
+ console.log(typeof nfList);
+ console.log(nfList);  
     //Fim Criando novo oobjeto nfList com atributos calculados.
 /*-------------------------------------------------------*/
       /*Atualiza o state*/
@@ -173,13 +174,7 @@ class Home extends Component{
       });
       /*Fim Atualiza o state*/       
      // console.log(this.state.nfs);
-     axios.post(`https://it-gestor.vercel.app/api/product`,
-      [
-      {"item": "card", "qty": "15"},
-      {"item": "envelope", "qty": "20"},
-      {"item": "stamps", "qty": "30"}	
-      ] 
-     )
+     axios.post(`https://it-gestor.vercel.app/api/product`, nfList)
      .then(res => {
        console.log(res);
        console.log(res.data);
