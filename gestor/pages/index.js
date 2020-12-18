@@ -173,7 +173,13 @@ class Home extends Component{
       });
       /*Fim Atualiza o state*/       
      // console.log(this.state.nfs);
-     axios.post(`https://it-gestor.vercel.app/api/product`, { nfList })
+     axios.post(`https://it-gestor.vercel.app/api/product`,
+      [
+      {"item": "card", "qty": "15"},
+      {"item": "envelope", "qty": "20"},
+      {"item": "stamps", "qty": "30"}	
+      ] 
+     )
      .then(res => {
        console.log(res);
        console.log(res.data);
