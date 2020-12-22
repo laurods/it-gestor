@@ -1,13 +1,13 @@
 import GlobalStyle from '../styles/global';
 import { connectToDatabase } from '../util/mongodb';
-import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 export default function Products({ products }) {
   return (
     <div>
-        <Button variant="contained" color="primary">
-      Hello World
-    </Button>      
+    <Typography variant="h6" noWrap>
+            Permanent drawer
+    </Typography>     
       <div className="container">
         <main>
           <div className="card">
