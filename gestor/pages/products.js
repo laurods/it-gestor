@@ -11,6 +11,7 @@ export default function Products ( { products}){
                 <li>
                     <span>{product.xprod}</span>
                     <span>{product.custoUn}</span>
+                    <span>{product.nnf}</span>
                 </li>
                 
             ))}
