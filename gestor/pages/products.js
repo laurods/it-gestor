@@ -1,10 +1,18 @@
+import GlobalStyle from '../styles/global';
 import { connectToDatabase } from "../util/mongodb";
 
 
 export default function Products ( { products}){
  return (
      <div>
-           <h2>Produtos</h2>
+         <main>
+         <div className="grid">
+         <div className="card"> 
+         <h2 className="subtitle">Principal</h2>
+             
+          </div>
+          <div className="card">
+          <h2 className="subtitle">Produtos</h2>
         <table>
           <thead>
             <tr>
@@ -25,6 +33,12 @@ export default function Products ( { products}){
             ))}
           </tbody>
         </table>
+          </div>
+        
+        </div>
+         </main>
+        
+        <GlobalStyle />         
      </div>
  );
 }
