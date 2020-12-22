@@ -16,5 +16,8 @@
     "react-dropzone": "^11.2.4",
     "styled-components": "^5.2.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
 }

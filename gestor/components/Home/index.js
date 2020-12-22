@@ -1,9 +1,8 @@
-import Head from 'next/head'
-import { connectToDatabase } from '../util/mongodb'
+import Head from 'next/head';
+import { connectToDatabase } from '../util/mongodb';
 import Upload from '../components/Upload';
 
-export default function Home({ isConnected }) {  
-
+export default function Home({ isConnected }) {
   return (
     <div className="container">
       <Head>
@@ -31,7 +30,7 @@ export default function Home({ isConnected }) {
 
         <div className="grid">
           <div className="card">
-            <Upload  />
+            <Upload />
           </div>
 
           <a href="https://nextjs.org/learn" className="card">
@@ -219,18 +218,16 @@ export default function Home({ isConnected }) {
           box-sizing: border-box;
         }
       `}</style>
-     
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {
-  const { client } = await connectToDatabase()
+  const { client } = await connectToDatabase();
 
-  const isConnected = await client.isConnected() // Returns true or false
+  const isConnected = await client.isConnected(); // Returns true or false
 
   return {
     props: { isConnected },
-  }
+  };
 }
-
