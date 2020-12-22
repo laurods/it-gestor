@@ -1,19 +1,14 @@
-import GlobalStyle from '../../styles/global';
+import React from 'react';
 import { connectToDatabase } from '../../util/mongodb';
-
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 export default function Index({ products }) {
   return (
     <div>
-        
-      <div className="container">
-        <main>
-          <div className="card">
-            <h2 className="subtitle">Principal</h2>
-          </div>
-          <div className="card">
-            <h2 className="subtitle">Produtos</h2>
-            <table>
+      <Container maxWidth="sm">
+      <Box my={4}>
+      <table>
               <thead>
                 <tr>
                   <th>Descrição</th>
@@ -32,12 +27,10 @@ export default function Index({ products }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
-          </div>
-        </main>
-
-        <GlobalStyle />
-      </div>
+            </table>       
+      </Box>
+    </Container>
+   
     </div>
   );
 }
