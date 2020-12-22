@@ -7,6 +7,7 @@ module.exports = {
         // Example using webpack option
         //config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
         config.node = {
+            dns: 'empty',
             fs: 'empty',
             net: 'empty',
             tls: 'empty'
