@@ -4,6 +4,7 @@ import axios from 'axios';
 import Head from 'next/head'
 import GlobalStyle from '../styles/global';
 import Upload from '../components/Upload';
+import Product from '../components/Product';
 
 class Home extends Component{
   state = {
@@ -162,8 +163,7 @@ class Home extends Component{
      return row;
    });   
    
- console.log(typeof nfList);
- console.log(nfList);  
+ 
     //Fim Criando novo oobjeto nfList com atributos calculados.
 /*-------------------------------------------------------*/
       /*Atualiza o state*/
@@ -173,7 +173,7 @@ class Home extends Component{
         companies: this.state.companies.concat(xNome),
       });
       /*Fim Atualiza o state*/       
-     // console.log(this.state.nfs);
+     /* Salva no banco de dados */
      axios.post(`https://it-gestor.vercel.app/api/product`, nfList)
      .then(res => {
        console.log(res);
@@ -183,6 +183,7 @@ class Home extends Component{
       console.log(error.res.status);  
       console.log(error.res.headers); 
   })
+  /* Fim Salva no banco de dados */
   }
   /*FIm incio CreateNF*/
 
@@ -196,10 +197,10 @@ class Home extends Component{
 
  
   componentWillUnmount(){
- 
+    this.state.uploadedFiles.forEach(file => URL.revokeObjectURL(file.preview));
   }
   render(){  
-    console.table(this.state.products);         
+            
     return(
     <div className="container">
        <Head>
@@ -215,6 +216,7 @@ class Home extends Component{
         <div className="grid">
           <div className="card"> 
               <Upload  onUpload={this.handleUpload} />
+              <Product />
           </div>
           <div  className="card">
             <h3>Fácil</h3>
