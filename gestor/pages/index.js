@@ -4,7 +4,7 @@ import axios from 'axios';
 import Head from 'next/head'
 import GlobalStyle from '../styles/global';
 import Upload from '../components/Upload';
-import Product from '../components/Product';
+
 
 class Home extends Component{
   state = {
@@ -216,7 +216,7 @@ class Home extends Component{
         <div className="grid">
           <div className="card"> 
               <Upload  onUpload={this.handleUpload} />
-              <Product />
+             
           </div>
           <div  className="card">
             <h3>Fácil</h3>
