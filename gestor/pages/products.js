@@ -4,18 +4,27 @@ import { connectToDatabase } from "../util/mongodb";
 export default function Products ( { products}){
  return (
      <div>
-         <h1> Lista de Produtos</h1>
-
-         <ul>
-            {products.map((product) =>(
-                <li>
-                    <span>{product.xprod}</span>
-                    <span>{product.custoUn}</span>
-                    <span>{product.nnf}</span>
-                </li>
-                
+           <h2>Produtos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Custo Un</th>             
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.id}>
+                <td>{product.xprod}</td>
+                <td>R${product.custoUn}</td>                
+                <td>
+                  <button>Adicionar</button>
+                </td>
+              </tr>
             ))}
-         </ul>
+          </tbody>
+        </table>
      </div>
  );
 }
