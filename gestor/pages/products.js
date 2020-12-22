@@ -1,9 +1,13 @@
 import GlobalStyle from '../styles/global';
 import { connectToDatabase } from '../util/mongodb';
+import Button from '@material-ui/core/Button';
 
 export default function Products({ products }) {
   return (
-    <div>      
+    <div>
+        <Button variant="contained" color="primary">
+      Hello World
+    </Button>      
       <div className="container">
         <main>
           <div className="card">
