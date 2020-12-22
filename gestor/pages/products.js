@@ -5,8 +5,8 @@ import { connectToDatabase } from "../util/mongodb";
 export default function Products ( { products}){
  return (
      <div>
-         <main>
-         <div className="grid">
+         <div className="container">
+         <main>        
          <div className="card"> 
          <h2 className="subtitle">Principal</h2>
              
@@ -35,10 +35,13 @@ export default function Products ( { products}){
         </table>
           </div>
         
-        </div>
+       
          </main>
         
-        <GlobalStyle />         
+        <GlobalStyle />
+
+         </div>
+                  
      </div>
  );
 }
