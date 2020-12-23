@@ -34,11 +34,11 @@ function Row(props) {
   const classes = useRowStyles();
 
   return (    
-    <div className={classes.root}>    
+    <React.Fragment>   
    
        
            
-            <TableRow>
+            <TableRow className={classes.root}>
                 <TableCell>
                 <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
                     {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -84,7 +84,7 @@ function Row(props) {
             
         
       
-      </div> 
+        </React.Fragment>
       
       
   );
