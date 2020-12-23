@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { connectToDatabase } from '../util/mongodb';
+import { connectToDatabase } from '../../util/mongodb';
 
 const useRowStyles = makeStyles({
   root: {
