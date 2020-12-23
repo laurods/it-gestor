@@ -35,7 +35,7 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell>
           {row.xprod}
         </TableCell>
         <TableCell align="right">{row.custoUn}</TableCell>
