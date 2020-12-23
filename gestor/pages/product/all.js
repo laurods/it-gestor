@@ -20,7 +20,7 @@ export default function CollapsibleTable({ products }) {
             <SearchBar />
             </Paper>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
@@ -38,7 +38,11 @@ export default function CollapsibleTable({ products }) {
                     </TableBody>
                 </Table>
                 </TableContainer>
-            </Grid>        
+            </Grid>
+            <Grid item xs={4}>
+            <h1>Tela Editar</h1>
+            </Grid>
+
         </Grid>
     </div>
     
