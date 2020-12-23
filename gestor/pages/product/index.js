@@ -29,7 +29,7 @@ function Row(props) {
   const classes = useRowStyles();
   return (
     <div>
-<TableRow className={classes.root}>
+      <TableRow>
         <TableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -39,9 +39,7 @@ function Row(props) {
           {row.xprod}
         </TableCell>
         <TableCell align="right">{row.custoUn}</TableCell>
-        <TableCell align="right">{row.ceantrib}</TableCell> 
-        <TableCell align="right">{row.ucom}</TableCell> 
-        <TableCell align="right">{row.qcom}</TableCell>         
+              
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -90,10 +88,7 @@ export default function CollapsibleTable({ products }) {
             <TableCell />
             <TableCell>Produtos</TableCell>
             <TableCell align="right">Descrição</TableCell>
-            <TableCell align="right">Custo Un</TableCell>
-            <TableCell align="right">Cod. Barras</TableCell>
-            <TableCell align="right">Unidade</TableCell>
-            <TableCell align="right">Quant.</TableCell>            
+            <TableCell align="right">Custo Un</TableCell>                     
           </TableRow>
         </TableHead>
         <TableBody>
