@@ -35,7 +35,7 @@ function Row(props) {
 
   return (    
     <div className={classes.root}>    
-    <Grid container spacing={3}>
+   
        
            
             <TableRow>
@@ -83,7 +83,7 @@ function Row(props) {
             </TableRow>
             
         
-      </Grid>
+      
       </div> 
       
       
