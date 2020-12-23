@@ -38,10 +38,9 @@ export default function Row(props) {
                     {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
-                {row.xprod}
-                </TableCell>
-                <TableCell align="right">{row.custoUn}</TableCell>        
+                <TableCell component="th" scope="row">{row.xprod}</TableCell>
+                <TableCell align="right">{row.custoUn}</TableCell>
+                <TableCell align="right">{row.ceantrib}</TableCell>        
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -50,23 +49,23 @@ export default function Row(props) {
                     <Table size="small" aria-label="purchases">
                         <TableHead>
                         <TableRow>
-                            <TableCell>Date</TableCell>
-                            <TableCell>Customer</TableCell>
-                            <TableCell align="right">Amount</TableCell>
-                            <TableCell align="right">Total price ($)</TableCell>
+                            <TableCell>Quant</TableCell>
+                            <TableCell>Embalagem</TableCell>
+                            <TableCell align="right">Vlr. Produtos</TableCell>
+                            <TableCell align="right">Ipi</TableCell>
+                            <TableCell align="right">ST</TableCell>
+                            <TableCell align="right">Custo Total</TableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
                         
                             <TableRow key={row.id}>
-                            <TableCell component="th" scope="row">
-                                {row.qcom}
-                            </TableCell>
-                            <TableCell>{row.picms}</TableCell>
-                            <TableCell align="right">{row.perDifcaIcms}</TableCell>
-                            <TableCell align="right">
-                                {row.vprod}
-                            </TableCell>
+                            <TableCell component="th" scope="row">{row.qcom}</TableCell>
+                            <TableCell>{row.ucom}</TableCell>
+                            <TableCell align="right">{row.vprod}</TableCell>
+                            <TableCell align="right">{row.ipi}</TableCell>
+                            <TableCell align="right">{row.vDifcaIcms}</TableCell>
+                            <TableCell align="right">{row.custoTotal}</TableCell>
                             </TableRow>
                         
                         </TableBody>
