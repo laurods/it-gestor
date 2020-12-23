@@ -10,10 +10,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { connectToDatabase } from '../../util/mongodb';
+import SearchBar from '../../components/screen/Layout/searchbar'
 
 
 const useRowStyles = makeStyles({
@@ -35,9 +35,7 @@ function Row(props) {
 
   return (    
     <React.Fragment>   
-   
-       
-           
+            <SearchBar />
             <TableRow className={classes.root}>
                 <TableCell>
                 <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
