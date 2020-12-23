@@ -28,7 +28,7 @@ function Row(props) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
   return (
-    <div>
+    <React.Fragment>
       <TableRow>
         <TableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
@@ -75,7 +75,7 @@ function Row(props) {
           </Collapse>
         </TableCell>
       </TableRow>
-     </div>
+      </React.Fragment>
   );
 }
 
