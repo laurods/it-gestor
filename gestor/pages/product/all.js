@@ -35,7 +35,7 @@ function Row(props) {
 
   return (    
     <React.Fragment>   
-            <SearchBar />
+            
             <TableRow className={classes.root}>
                 <TableCell>
                 <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
@@ -90,7 +90,9 @@ function Row(props) {
 
 export default function CollapsibleTable({ products }) {
   return (
-    <TableContainer component={Paper}>
+    <div>
+        <SearchBar />
+        <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
@@ -106,6 +108,8 @@ export default function CollapsibleTable({ products }) {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
+    
   );
 }
 
