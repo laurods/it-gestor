@@ -58,17 +58,7 @@ export default function Row(props) {
                             <TableCell align="right">Ipi</TableCell>
                             <TableCell align="right">ST</TableCell>
                             <TableCell align="right">Custo Total</TableCell>
-                            <TableCell align="right">
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                size="small"
-                                startIcon={<EditIcon />}
-                                >
-                                Alterar
-                                </Button>
                             
-                            </TableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
@@ -81,7 +71,17 @@ export default function Row(props) {
                             <TableCell align="right">{row.ipi}</TableCell>
                             <TableCell align="right">{row.vDifcaIcms}</TableCell>
                             <TableCell align="right">{row.custoTotal}</TableCell>
-                            <TableCell align="right">{row.custoTotal}</TableCell>
+                            <TableCell align="right">
+                                <Button
+                                variant="contained"
+                                color="primary"
+                                size="small"
+                                startIcon={<EditIcon />}
+                                >
+                                Alterar
+                                </Button>
+                            
+                            </TableCell>
                             </TableRow>
                         
                         </TableBody>
