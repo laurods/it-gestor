@@ -23,11 +23,7 @@ const useRowStyles = makeStyles({
       flexGrow: 1,     
     },
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+  
 });
 
 
@@ -41,7 +37,7 @@ function Row(props) {
     <div className={classes.root}>    
     <Grid container spacing={3}>
         <Grid item xs={6}>
-            <Paper className={classes.paper}> 
+            <Paper> 
             <TableRow>
                 <TableCell>
                 <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
