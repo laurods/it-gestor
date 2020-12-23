@@ -38,7 +38,10 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.xprod}
         </TableCell>
-        <TableCell align="right">{row.custoUn}</TableCell>        
+        <TableCell align="right">{row.custoUn}</TableCell>
+        <TableCell align="right">{row.ceantrib}</TableCell> 
+        <TableCell align="right">{row.ucom}</TableCell> 
+        <TableCell align="right">{row.qcom}</TableCell>         
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -85,9 +88,12 @@ export default function CollapsibleTable({ products }) {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Lista</TableCell>
+            <TableCell>Produtos</TableCell>
             <TableCell align="right">Descrição</TableCell>
-            <TableCell align="right">Custo Un</TableCell>            
+            <TableCell align="right">Custo Un</TableCell>
+            <TableCell align="right">Cod. Barras</TableCell>
+            <TableCell align="right">Unidade</TableCell>
+            <TableCell align="right">Quant.</TableCell>            
           </TableRow>
         </TableHead>
         <TableBody>
