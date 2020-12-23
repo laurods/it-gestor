@@ -20,7 +20,7 @@ const useRowStyles = makeStyles({
   root: {
     '& > *': {
       borderBottom: 'unset',
-      flexGrow: 1,     
+          
     },
   },
   
@@ -37,7 +37,7 @@ function Row(props) {
     <div className={classes.root}>    
     <Grid container spacing={3}>
         <Grid item xs={6}>
-            <Paper> 
+           
             <TableRow>
                 <TableCell>
                 <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
@@ -81,7 +81,7 @@ function Row(props) {
                 </Collapse>
                 </TableCell>
             </TableRow>
-            </Paper>
+            
         </Grid>
       </Grid>
       </div> 
