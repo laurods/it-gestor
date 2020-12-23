@@ -86,7 +86,7 @@ export default function CollapsibleTable({ products }) {
           <TableRow>
             <TableCell />
             <TableCell>Descrição</TableCell>
-            <TableCell align="right">Custo Un</TableCell>            
+            <TableCell>Custo Un</TableCell>            
           </TableRow>
         </TableHead>
         <TableBody>
