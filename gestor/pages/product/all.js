@@ -13,12 +13,13 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { connectToDatabase } from '../../util/mongodb';
-import GlobalStyle from '../../styles/global';
+
 
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
       borderBottom: 'unset',
+      maxWidth: 'sm',
     },
   },
 });
@@ -75,7 +76,7 @@ function Row(props) {
           </Collapse>
         </TableCell>
       </TableRow>
-      <GlobalStyle />
+     
       </div>
   );
 }
