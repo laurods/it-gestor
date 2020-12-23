@@ -9,11 +9,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { connectToDatabase } from '../../util/mongodb';
+import GlobalStyle from '../../styles/global';
 
 const useRowStyles = makeStyles({
   root: {
@@ -31,7 +31,7 @@ function Row(props) {
   const classes = useRowStyles();
 
   return (
-    <React.Fragment>
+   <div>
       <TableRow className={classes.root}>
         <TableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
@@ -75,7 +75,8 @@ function Row(props) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+      <GlobalStyle />
+      </div>
   );
 }
 
