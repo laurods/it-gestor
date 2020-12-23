@@ -78,19 +78,7 @@ function Row(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-
-  const products = await db.collection('products').find({}).toArray();
-
-  return {
-    props: {
-      products: JSON.parse(JSON.stringify(products)),
-    },
-  };
-}
-
-export default function CollapsibleTable(products) {
+export default function CollapsibleTable({ products }) {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -110,3 +98,16 @@ export default function CollapsibleTable(products) {
     </TableContainer>
   );
 }
+
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+
+  const products = await db.collection('products').find({}).toArray();
+
+  return {
+    props: {
+      products: JSON.parse(JSON.stringify(products)),
+    },
+  };
+}
+
