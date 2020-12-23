@@ -41,18 +41,12 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.xprod}
         </TableCell>
-        <TableCell align="right">{row.nnf}</TableCell>
-        <TableCell align="right">{row.cean}</TableCell>
-        <TableCell align="right">{row.ceantrib}</TableCell>
-        <TableCell align="right">{row.ucom}</TableCell>
+        <TableCell align="right">{row.custoUn}</TableCell>        
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
-              <Typography variant="h6" gutterBottom component="div">
-                History
-              </Typography>
+            <Box margin={1}>             
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
@@ -93,10 +87,7 @@ export default function CollapsibleTable({ products }) {
           <TableRow>
             <TableCell />
             <TableCell>Descrição</TableCell>
-            <TableCell align="right">Custo Un</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="right">Custo Un</TableCell>         
           </TableRow>
         </TableHead>
         <TableBody>
