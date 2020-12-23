@@ -10,6 +10,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { connectToDatabase } from '../../util/mongodb';
@@ -19,8 +20,13 @@ const useRowStyles = makeStyles({
   root: {
     '& > *': {
       borderBottom: 'unset',
-      maxWidth: 'sm',
+      flexGrow: 1,     
     },
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
 });
 
@@ -31,52 +37,59 @@ function Row(props) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
 
-  return (
-    <React.Fragment>
-      <TableRow className={classes.root}>
-        <TableCell>
-          <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          {row.xprod}
-        </TableCell>
-        <TableCell align="right">{row.custoUn}</TableCell>        
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>             
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                 
-                    <TableRow key={row.id}>
-                      <TableCell component="th" scope="row">
-                        {row.qcom}
-                      </TableCell>
-                      <TableCell>{row.picms}</TableCell>
-                      <TableCell align="right">{row.perDifcaIcms}</TableCell>
-                      <TableCell align="right">
-                        {row.vprod}
-                      </TableCell>
-                    </TableRow>
-                  
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-      </React.Fragment>
+  return (    
+    <div className={classes.root}>    
+    <Grid container spacing={3}>
+        <Grid item xs={6}>
+            <Paper className={classes.paper}> 
+            <TableRow>
+                <TableCell>
+                <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
+                    {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                </IconButton>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                {row.xprod}
+                </TableCell>
+                <TableCell align="right">{row.custoUn}</TableCell>        
+            </TableRow>
+            <TableRow>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    <Box margin={1}>             
+                    <Table size="small" aria-label="purchases">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell>Date</TableCell>
+                            <TableCell>Customer</TableCell>
+                            <TableCell align="right">Amount</TableCell>
+                            <TableCell align="right">Total price ($)</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        
+                            <TableRow key={row.id}>
+                            <TableCell component="th" scope="row">
+                                {row.qcom}
+                            </TableCell>
+                            <TableCell>{row.picms}</TableCell>
+                            <TableCell align="right">{row.perDifcaIcms}</TableCell>
+                            <TableCell align="right">
+                                {row.vprod}
+                            </TableCell>
+                            </TableRow>
+                        
+                        </TableBody>
+                    </Table>
+                    </Box>
+                </Collapse>
+                </TableCell>
+            </TableRow>
+            </Paper>
+        </Grid>
+      </Grid>
+      </div> 
+      
       
   );
 }
