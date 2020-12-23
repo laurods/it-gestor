@@ -85,8 +85,7 @@ export default function CollapsibleTable({ products }) {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Produtos</TableCell>
+            <TableCell />            
             <TableCell align="right">Descrição</TableCell>
             <TableCell align="right">Custo Un</TableCell>                     
           </TableRow>
