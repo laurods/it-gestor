@@ -26,7 +26,8 @@ const useStyles = makeStyles(() => ({
 export default function CenteredGrid({ products }) {
   const classes = useStyles();
   const router = useRouter();
-  console.log(router);
+ const groupNF = groupBy(nfs, products => products.nnf);
+ console.log(groupNF);
 
   return (
     <div>
