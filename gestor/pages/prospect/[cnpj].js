@@ -47,9 +47,12 @@ export default function CenteredGrid({ products }) {
         <Grid item xs={2}>
           {!!nfByProducts.length &&
           <div>
-            <p>Testes</p>
+            {nfByProducts.map((nf) =>
+             <li>{nf}</li>
+             )
+            }
           </div>
-
+          
           }
         
         </Grid>
