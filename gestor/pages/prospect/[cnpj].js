@@ -26,6 +26,7 @@ const useStyles = makeStyles(() => ({
 export default function CenteredGrid({ products }) {
   const classes = useStyles();
   const router = useRouter(); 
+  
 
   return (
     <div>
