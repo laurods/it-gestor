@@ -25,9 +25,8 @@ const useStyles = makeStyles(() => ({
 
 export default function CenteredGrid({ products }) {
   const classes = useStyles();
-  const router = useRouter();  
-  
- 
+  const router = useRouter();
+
   const productByNF = products.reduce((acc, value) =>{
     if(!acc[value.nnf]){
       acc[value.nnf] = [];
@@ -46,7 +45,8 @@ export default function CenteredGrid({ products }) {
           <SearchBar />         
         </Grid>
         <Grid item xs={2}>
-        <Paper className={classes.paper}>        
+        <Paper className={classes.paper}>
+          {!!productByNF.length &&        
           <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
@@ -56,14 +56,14 @@ export default function CenteredGrid({ products }) {
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {products.map((row) => (
+                    {productByNF.map((row) => (
                         <TableRowNF key={row.id} row={row} />
                     ))}
                     </TableBody>
                 </Table>
                 </TableContainer>
 
-
+        }
         </Paper>  
         </Grid>
         <Grid item xs={8}>
