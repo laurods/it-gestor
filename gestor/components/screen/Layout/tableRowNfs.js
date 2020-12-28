@@ -30,7 +30,7 @@ export default function Row(props) {
                     {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">{row.nnf}</TableCell>                        
+                <TableCell component="th" scope="row">{row}</TableCell>                        
             </TableRow>           
         </React.Fragment>
   );

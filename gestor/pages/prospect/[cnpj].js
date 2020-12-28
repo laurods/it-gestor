@@ -35,8 +35,9 @@ export default function CenteredGrid({ products }) {
     return acc;
   }, {});
   
+  nfByProducts = Object.keys(productByNF);
   console.log(typeof productByNF);
-  console.log(Object.keys(productByNF));
+  console.log(nfByProducts);
 
 
 
@@ -49,7 +50,7 @@ export default function CenteredGrid({ products }) {
         </Grid>
         <Grid item xs={2}>
         <Paper className={classes.paper}>
-          {!!productByNF.length &&        
+          {!!nfByProducts.length &&        
           <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
@@ -59,8 +60,8 @@ export default function CenteredGrid({ products }) {
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {productByNF.map((row) => (
-                        <TableRowNF key={row.id} row={row} />
+                    {nfByProducts.map((row) => (
+                        <TableRowNF key={row} row={row} />
                     ))}
                     </TableBody>
                 </Table>
