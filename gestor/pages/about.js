@@ -31,14 +31,16 @@ export default function About() {
     model: "optima",
     year: "2012"
     }];
-    
-    let group = cars.reduce((r, a) => {
-      console.log("a", a);
-      console.log('r', r);
-      r[a.make] = [...r[a.make] || [], a];
-      return r;
-     }, {});
-     console.log("group", group);
+
+   const carByMake = cars.reduce((acc, value) =>{
+     if(!acc[value.make]){
+       acc[value.make] = [];
+     }
+     acc[value.make].push(value);
+     return acc;
+   }, {});
+
+   console.log(carByMake);
   return (
     <Container maxWidth="sm">
       <Box my={4}>
