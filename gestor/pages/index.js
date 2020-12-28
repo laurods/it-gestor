@@ -4,13 +4,14 @@ import axios from 'axios';
 import Head from 'next/head';
 import GlobalStyle from '../styles/global';
 import Upload from '../components/Upload';
+import Link from 'next/link'
 
 class Home extends Component {
   state = {
     uploadedFiles: [],
     nfs: [],
     products: [],
-    companies: [],
+    login:[],    
   };
   handleUpload = (files) => {
     const uploadedFiles = files.map((file) => ({
@@ -33,6 +34,7 @@ class Home extends Component {
   createNF = (data) => {
     const nf = data;
     const nNF = nf.getElementsByTagName('nNF')[0].innerHTML;
+    
     /*-------------------------------------------------------*/
     // Verifica se a NF já existe
     const isNFexist = this.state.nfs.filter((nf) => nf === nNF);
@@ -41,7 +43,9 @@ class Home extends Component {
       return;
     }
     // Fim Verifica se a NF já existe
-    const xNome = nf.getElementsByTagName('xNome')[0].innerHTML;
+
+    /*-------------------------------------------------------*/
+    
     const Det = nf.getElementsByTagName('det');
     const xProd = nf.getElementsByTagName('xProd');
     const uCom = nf.getElementsByTagName('uCom');
@@ -50,6 +54,8 @@ class Home extends Component {
     const vProd = nf.querySelectorAll('prod vProd');
     const cEAN = nf.getElementsByTagName('cEAN'); //Codigo de barras da caixa
     const cEANTrib = nf.getElementsByTagName('cEANTrib'); // codigo de barras do produto que está dentro da caixa
+    const tProd = nf.getElementsByTagName('ICMSTot'); // total dos produtos da nota para calculo do indice de frete
+    const totalProducts = tProd[0].children[8].innerHTML;    
     /*-------------------------------------------------------*/
     // Padronizando os dados dos valores de IPI
     const allipi = nf.getElementsByTagName('IPI');
@@ -167,20 +173,50 @@ class Home extends Component {
               parseFloat(vprod.vprod[indice]) * (pDifcaIcms[indice] / 100)) /
             parseFloat(qcom.qcom[indice])
           ).toFixed(2),
+        ifrete: 
+        1 * 
+         (
+          parseFloat(vprod.vprod[indice]) / parseFloat(totalProducts)
+         ).toFixed(2),
       };
       return row;
     });
-
+    //console.table(nfList);
     //Fim Criando novo oobjeto nfList com atributos calculados.
     /*-------------------------------------------------------*/
+    //Criando novo objeto nfObject com atributos    
+    const emitente = nf.getElementsByTagName('xNome')[0].innerHTML;
+    const destinatario = nf.getElementsByTagName('xNome')[1].innerHTML;
+    const cnpjEmitente = nf.getElementsByTagName('CNPJ')[0].innerHTML;
+    const cnpjDestinatario = nf.getElementsByTagName('CNPJ')[1].innerHTML;
+    const modFrete = nf.getElementsByTagName('modFrete')[0].innerHTML;     
+    const nfObject = {
+      nNF,
+      emitente,
+      cnpjEmitente,
+      destinatario,
+      cnpjDestinatario,
+      modFrete,   
+    }   
+    // Fim Criando novo objeto nfObject com atributos
+    /*-------------------------------------------------------*/
+    //Criando novo objeto LoginObject com atributos
+    const telefoneDestinatario = nf.getElementsByTagName('fone')[1].innerHTML;
+    const loginObject ={
+      user: cnpjEmitente,
+      password: telefoneDestinatario
+    }
+     //Fim Criando novo objeto LoginObject com atributos
+     /*-------------------------------------------------------*/    
     /*Atualiza o state*/
     this.setState({
       products: this.state.products.concat(nfList),
-      nfs: this.state.nfs.concat(nNF),
-      companies: this.state.companies.concat(xNome),
+      nfs: this.state.nfs.concat(nfObject),
+      login: this.state.login.concat(loginObject)     
     });
     /*Fim Atualiza o state*/
     /* Salva no banco de dados */
+    /*
     axios
       .post(`https://it-gestor.vercel.app/api/product`, nfList)
       .then((res) => {
@@ -192,6 +228,7 @@ class Home extends Component {
         console.log(error.res.status);
         console.log(error.res.headers);
       });
+      */
     /* Fim Salva no banco de dados */
   };
   /*FIm incio CreateNF*/
@@ -211,6 +248,7 @@ class Home extends Component {
     );
   }
   render() {
+    const {nfs, products, login} = this.state;   
     return (
       <div className="container">
         <Head>
@@ -222,7 +260,8 @@ class Home extends Component {
           />
         </Head>
         <main>
-          <h1 className="title">
+       
+          <h1 className="title">            
             <a href="#">itGestor</a>
           </h1>
           <h2 className="subtitle">Gerêncie os custos das mercadorias</h2>
@@ -230,13 +269,20 @@ class Home extends Component {
           <div className="grid">
             <div className="card">
               <Upload onUpload={this.handleUpload} />
-            </div>
+              {login.map((log) =>(
+                <Link href={'/prospect/'+log.user} key={log.user}>
+                      <a>{log.user}</a>
+                </Link>
+              ))}
+
+            </div>            
             <div className="card">
               <h3>Fácil</h3>
               <p>
                 Arraste os arquivos XML das notas de compra. O itGestor calcula
                 os custos para você.
               </p>
+              
             </div>
             <div className="card">
               <h3>Gratuito</h3>
