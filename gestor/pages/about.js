@@ -39,8 +39,7 @@ export default function About() {
      acc[value.make].push(value);
      return acc;
    }, {});
-
-   console.log(carByMake);
+ 
   return (
     <Container maxWidth="sm">
       <Box my={4}>

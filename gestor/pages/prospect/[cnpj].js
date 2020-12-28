@@ -34,9 +34,13 @@ export default function CenteredGrid({ products }) {
     acc[value.nnf].push(value);
     return acc;
   }, {});
-
+  const nfs = productByNF.keys();
+  for (x of nfs){
+    console.log(x);
+  }
   console.log(typeof productByNF);
-  console.log(productByNF); 
+  console.log(productByNF);
+
 
 
   return (
