@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
 export default function CenteredGrid({ products }) {
   const classes = useStyles();
   const router = useRouter();
-  console.log(products);
+  console.log(this.props.products);
   /*
   const productByNF = products.reduce((acc, value) =>{
     if(!acc[value.nnf]){
