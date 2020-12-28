@@ -36,7 +36,7 @@ export default function CenteredGrid({ products }) {
   }, {});
   
   console.log(typeof productByNF);
-  console.log(productByNF);
+  console.log(productByNF.key);
 
 
 
