@@ -37,6 +37,7 @@ export default function CenteredGrid({ products }) {
   
   const nfByProducts = Object.keys(productByNF);
   console.log(typeof nfByProducts);
+  console.log(nfByProducts);
   
 
 
