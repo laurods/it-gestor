@@ -12,6 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import SearchBar from '../../components/screen/Layout/searchbar';
 import { connectToDatabase } from '../../util/mongodb';
 import TableRowProduct from '../../components/screen/Layout/tableRowProduct';
+import TableRowNF from '../../components/screen/Layout/tableRowNfs';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -34,8 +35,24 @@ export default function CenteredGrid({ products }) {
           <SearchBar />         
         </Grid>
         <Grid item xs={2}>
-        <Paper className={classes.paper}>
-          NFs:
+        <Paper className={classes.paper}>        
+          <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead>
+                    <TableRow>
+                        <TableCell />
+                        <TableCell>NFs</TableCell>                              
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {products.map((row) => (
+                        <TableRowNF key={row.id} row={row} />
+                    ))}
+                    </TableBody>
+                </Table>
+                </TableContainer>
+
+
         </Paper>  
         </Grid>
         <Grid item xs={8}>
