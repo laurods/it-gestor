@@ -49,26 +49,7 @@ export default function CenteredGrid({ products }) {
           <SearchBar />         
         </Grid>
         <Grid item xs={2}>
-        <Paper className={classes.paper}>
-          {!!nfByProducts.length &&        
-          <TableContainer component={Paper}>
-                <Table aria-label="collapsible table">
-                    <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell>NFs</TableCell>                              
-                    </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {nfByProducts.map((row) => (
-                        <TableRowNF key={row} row={row} />
-                    ))}
-                    </TableBody>
-                </Table>
-                </TableContainer>
-
-        }
-        </Paper>  
+        
         </Grid>
         <Grid item xs={8}>
           <Paper className={classes.paper}>
