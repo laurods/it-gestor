@@ -37,12 +37,7 @@ export default function CenteredGrid({ products }) {
   
   const nfByProducts = Object.keys(productByNF);
   console.log(typeof nfByProducts);
-  console.log(nfByProducts);
-  
-
-
-
-
+  console.log(nfByProducts); 
   return (
     <div>
       <Grid container spacing={3}>
@@ -50,6 +45,12 @@ export default function CenteredGrid({ products }) {
           <SearchBar />         
         </Grid>
         <Grid item xs={2}>
+          {!!nfByProducts.length &&
+          <div>
+            <p>Testes</p>
+          </div>
+
+          }
         
         </Grid>
         <Grid item xs={8}>
