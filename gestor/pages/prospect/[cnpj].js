@@ -54,12 +54,9 @@ export default function CenteredGrid({ products }) {
                 </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
-              {nfByProducts.map((nf) =>
-                <TableCell component="th" scope="row">{nf}</TableCell>
-                )
-              }
-              </TableRow>
+            {nfByProducts.map((nf) =>                            
+                <TableRow>{nf}</TableRow>              )
+              }              
             </TableBody>
             </Table>
           </div>
