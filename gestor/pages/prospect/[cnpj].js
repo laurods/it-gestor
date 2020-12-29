@@ -47,15 +47,21 @@ export default function CenteredGrid({ products }) {
         <Grid item xs={2}>
           {!!nfByProducts.length &&
           <div>
-            <TableRow>
-            {nfByProducts.map((nf) =>
-            <TableCell component="th" scope="row">{nf}</TableCell>
-             )
-            }
-             
-
-            </TableRow>
-           
+            <Table aria-label="collapsible table">
+            <TableHead>
+                <TableRow>
+                <TableCell>NFs</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+              {nfByProducts.map((nf) =>
+                <TableCell component="th" scope="row">{nf}</TableCell>
+                )
+              }
+              </TableRow>
+            </TableBody>
+            </Table>
           </div>
 
           }
