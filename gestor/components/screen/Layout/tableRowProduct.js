@@ -10,8 +10,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import Button from '@material-ui/core/Button';
-import EditIcon from '@material-ui/icons/Edit';
 
 
 
@@ -42,7 +40,7 @@ export default function Row(props) {
                 </TableCell>
                 <TableCell component="th" scope="row">{row.xprod}</TableCell>
                 <TableCell align="right">{row.custoUn}</TableCell>
-                <TableCell align="right">{row.ceantrib}</TableCell>        
+                <TableCell align="right">{row.ceantrib}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -51,12 +49,13 @@ export default function Row(props) {
                     <Table size="small" aria-label="purchases">
                         <TableHead>
                         <TableRow>
-                            <TableCell>NF</TableCell>
+                            <TableCell>NF</TableCell>                            
                             <TableCell>Quant</TableCell>
                             <TableCell>Embalagem</TableCell>
                             <TableCell align="right">Vlr. Produtos</TableCell>
                             <TableCell align="right">Ipi</TableCell>
                             <TableCell align="right">ST</TableCell>
+                            <TableCell align="right">Frete</TableCell>
                             <TableCell align="right">Custo Total</TableCell>
                             
                         </TableRow>
@@ -65,23 +64,14 @@ export default function Row(props) {
                         
                             <TableRow key={row.id}>
                             <TableCell component="th" scope="row">{row.nnf}</TableCell>
-                            <TableCell>{row.qcom}</TableCell>
-                            <TableCell>{row.ucom}</TableCell>
+                            
+                            <TableCell>{row.qcom} </TableCell>
+                            <TableCell>{row.ucom} </TableCell>
                             <TableCell align="right">{row.vprod}</TableCell>
                             <TableCell align="right">{row.ipi}</TableCell>
-                            <TableCell align="right">{row.vDifcaIcms}</TableCell>
-                            <TableCell align="right">{row.custoTotal}</TableCell>
-                            <TableCell align="right">
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                size="small"
-                                startIcon={<EditIcon />}
-                                >
-                                Alterar
-                                </Button>
-                            
-                            </TableCell>
+                            <TableCell align="right">{row.icmsst}</TableCell>
+                            <TableCell align="right">{row.vfrete}</TableCell>
+                            <TableCell align="right">{row.custoTotal}</TableCell>                            
                             </TableRow>
                         
                         </TableBody>

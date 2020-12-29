@@ -80,7 +80,7 @@ export default function SearchAppBar() {
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Material-UI
-          </Typography>
+          </Typography>         
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

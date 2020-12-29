@@ -182,6 +182,7 @@ class Home extends Component {
          (
           parseFloat(vprod.vprod[indice]) / parseFloat(totalProducts)
          ).toFixed(2),
+         vfrete:0,
       };
       return row;
     });

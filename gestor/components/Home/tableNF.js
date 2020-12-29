@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +10,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import SearchBar from '../screen/Layout/searchbar';
 import TableRowProduct from '../screen/Layout/tableRowProduct';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -20,14 +23,73 @@ const useStyles = makeStyles(() => ({
     },
   }));
 export default function TableNF(props) {
-    const classes = useStyles();
+    const classes = useStyles();    
     const { products } = props;
+    const [allProducts, setAllProducts] = useState(products);
+    const handleCustoFrete = () =>{
+      const valor = document.getElementById('valor-frete').value;
+      const productsWithFreight = products.map((product) => {
+        return{
+        nnf: product.nnf,
+        cean: product.cean,
+        ceantrib: product.ceantrib,
+        xprod: product.xprod,
+        ucom: product.ucom,
+        qcom: product.qcom,
+        picms: product.picms,
+        perDifcaIcms: product.perDifcaIcms,
+        vprod: product.vprod,
+        ipi: product.ipi,
+        icmsst: product.icmsst,
+        vDifcaIcms:product.vDifcaIcms,        
+        ifrete:product.ifrete,
+        vfrete: 1*(parseFloat(product.ifrete) * parseFloat(valor)).toFixed(2),
+        custoUn:1*((product.custoTotal + ((parseFloat(product.ifrete) * parseFloat(valor))))/parseFloat(product.qcom)).toFixed(2),
+        custoTotal:product.custoTotal + ((parseFloat(product.ifrete) * parseFloat(valor))),
+        }        
+      })     
+      setAllProducts(productsWithFreight);
+    };
 
     return (
         <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>         
             <SearchBar />         
+          </Grid>
+
+          <Grid item xs={2}>
+          <TextField
+          id="valor-frete"
+          label="Valor do Frete" 
+          size="normal"
+          fullWidth
+          defaultValue="0.00"
+          variant="outlined"                              
+          />
+          </Grid>
+          <Grid item xs={2}>
+          <Button
+          variant="contained"
+          color="default"
+          size="large"
+          onClick={handleCustoFrete}
+          
+          >
+          Atualizar Custos
+          </Button>
+          </Grid>
+
+          <Grid item xs={2}>
+          <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          startIcon={<SaveIcon />}
+          
+          >
+          Salvar Produtos
+          </Button>
           </Grid>
           
           <Grid item xs={12}>
@@ -43,7 +105,7 @@ export default function TableNF(props) {
                       </TableRow>
                       </TableHead>
                       <TableBody>
-                      {products.map((row) => (
+                      {allProducts.map((row) => (
                         <TableRowProduct key={row.id} row={row} />
                     ))}
                       </TableBody>
