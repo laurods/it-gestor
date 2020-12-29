@@ -4,14 +4,18 @@ import axios from 'axios';
 import Head from 'next/head';
 import GlobalStyle from '../styles/global';
 import Upload from '../components/Upload';
-import Link from 'next/link'
+import Top from '../components/Home/top';
+import Content from '../components/Home/content';
+import TableNF from '../components/Home/tableNF';
+//import Link from 'next/link'
 
 class Home extends Component {
   state = {
     uploadedFiles: [],
     nfs: [],
     products: [],
-    login:[],    
+    login:[],
+    show: true,    
   };
   handleUpload = (files) => {
     const uploadedFiles = files.map((file) => ({
@@ -212,7 +216,8 @@ class Home extends Component {
     this.setState({
       products: this.state.products.concat(nfList),
       nfs: this.state.nfs.concat(nfObject),
-      login: this.state.login.concat(loginObject)     
+      login: this.state.login.concat(loginObject),
+      show: false,     
     });
     /*Fim Atualiza o state*/
     /* Salva no banco de dados */
@@ -230,16 +235,16 @@ class Home extends Component {
       });
       */
     /* Fim Salva no banco de dados */
+   
   };
-  /*FIm incio CreateNF*/
+  /*FIm incio CreateNF*/  
 
-  /* Inicio processXML*/
+  /* Inicio processXML*/  
   processXML = (file) => {
     axios
       .get(file.preview, { responseType: 'document' })
       .then((response) => this.createNF(response.data));
   };
-
   /* Fim processXML*/
 
   componentWillUnmount() {
@@ -248,7 +253,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {nfs, products, login} = this.state;   
+    const {nfs, products, login, show} = this.state;    
     return (
       <div className="container">
         <Head>
@@ -259,65 +264,10 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <main>
-       
-          <h1 className="title">            
-            <a href="#">itGestor</a>
-          </h1>
-          <h2 className="subtitle">Gerêncie os custos das mercadorias</h2>
-          <h2 className="subtitle">Lucre mais comprando melhor!</h2>
-          <div className="grid">
-            <div className="card">
-              <Upload onUpload={this.handleUpload} />
-              {login.map((log) =>(
-                <Link href={'/prospect/'+log.user} key={log.user}>
-                      <a>{log.user}</a>
-                </Link>
-              ))}
-
-            </div>            
-            <div className="card">
-              <h3>Fácil</h3>
-              <p>
-                Arraste os arquivos XML das notas de compra. O itGestor calcula
-                os custos para você.
-              </p>
-              
-            </div>
-            <div className="card">
-              <h3>Gratuito</h3>
-              <p>Sem mensalidades. Grátis para 10 notas mensais.</p>
-            </div>
-            <div className="card">
-              <h3>Simples</h3>
-              <p>
-                Apenas com 1 clique você terá os todos os custos calculados.
-              </p>
-            </div>
-          </div>
-          <footer>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card"
-            >
-              <strong>
-                Acima de 10 notas mensais R$ 0.99 por nota. <br />
-                Conheça nossos planos de bilhetagem!
-              </strong>
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card"
-            >
-              <strong>WhatsApp (54) 9.9957-2366</strong>
-            </a>
-          </footer>
-        </main>
-
+        {!!show && <Top /> }
+        {!!show && <Upload onUpload={this.handleUpload} /> }   
+        {!!show && <Content />} 
+        {!!products.length && <TableNF products={products}/> }
         <GlobalStyle />
       </div>
     );

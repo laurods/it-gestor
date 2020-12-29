@@ -12,8 +12,6 @@ import TableRow from '@material-ui/core/TableRow';
 import SearchBar from '../../components/screen/Layout/searchbar';
 import { connectToDatabase } from '../../util/mongodb';
 import TableRowProduct from '../../components/screen/Layout/tableRowProduct';
-import TableRowNF from '../../components/screen/Layout/tableRowNfs';
-
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,

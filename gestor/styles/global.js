@@ -18,29 +18,6 @@ html, body, #root{
     height: 100%;
 }
 
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #cccccc;
-    padding: 8px;
-  }
-  
-  td th {
-    font-weight: bold;
-    text-transform: uppercase;    
-  }
-  tr:nth-child(even){
-    background-color: #dddddd;
-  }
-  
-  tr:hover{
-    background-color: #333;
-    color: white;
-  }
   .container {
     min-height: 100vh;
     padding: 0 0.5rem;
