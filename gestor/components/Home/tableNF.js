@@ -25,11 +25,12 @@ const useStyles = makeStyles(() => ({
   }));
 export default function TableNF(props) {
     const classes = useStyles();    
-    const { products, login } = props;
+    const { products, cnpjEmitente } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
+    console.log(cnpjEmitente);
 
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
@@ -82,7 +83,7 @@ export default function TableNF(props) {
         console.log(res);
         console.log(res.data);
         alert('Success');
-        console.log(login.user);
+        console.log(cnpjEmitente);
       })
       .catch((error) => {
         console.log(error.res.data);

@@ -15,6 +15,7 @@ class Home extends Component {
     nfs: [],
     products: [],
     login:[],
+    cnpjEmitente:'',
     show: true,    
   };
   handleUpload = (files) => {
@@ -218,6 +219,7 @@ class Home extends Component {
       products: this.state.products.concat(nfList),
       nfs: this.state.nfs.concat(nfObject),
       login: this.state.login.concat(loginObject),
+      cnpjEmitente: cnpjEmitente,
       show: false,     
     });
     /*Fim Atualiza o state*/
@@ -268,7 +270,7 @@ class Home extends Component {
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }   
         {!!show && <Content />} 
-        {!!products.length && <TableNF products={products} login={login}/> }
+        {!!products.length && <TableNF products={products} cnpjEmitente={cnpjEmitente}/> }
         <GlobalStyle />
       </div>
     );
