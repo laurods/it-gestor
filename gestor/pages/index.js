@@ -255,6 +255,10 @@ class Home extends Component {
   };
   /* Fim processXML*/
 
+  onShowDashboard = () =>{
+    console.log('funcionou');
+  }
+
   componentWillUnmount() {
     this.state.uploadedFiles.forEach((file) =>
       URL.revokeObjectURL(file.preview)
@@ -275,7 +279,7 @@ class Home extends Component {
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }   
         {!!show && <Content />} 
-        {!!products.length && <TableNF products={products} cnpjEmitente={cnpjEmitente}/> }
+        {!!products.length && <TableNF products={products} cnpjEmitente={cnpjEmitente} onShowDashboard={this.onShowDashboard}/> }
         <GlobalStyle />
       </div>
     );
