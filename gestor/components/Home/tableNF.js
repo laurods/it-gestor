@@ -27,7 +27,6 @@ export default function TableNF(props) {
     const classes = useStyles();    
     const { products, login } = props;
     const [allProducts, setAllProducts] = useState(products);
-    const [dataLogin, setDataLogin] = useState(login);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
@@ -83,7 +82,7 @@ export default function TableNF(props) {
         console.log(res);
         console.log(res.data);
         alert('Success');
-        console.log(dataLogin.user);
+        console.log(login.user);
       })
       .catch((error) => {
         console.log(error.res.data);
