@@ -30,8 +30,6 @@ export default function TableNF(props) {
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
-    console.log(products);    
-    
 
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
