@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
   }));
 export default function TableNF(props) {
     const classes = useStyles();  
-    const { products, cnpjEmitente, onShowDashboard } = props;
+    const { products, onShowDashboard } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
@@ -86,8 +86,7 @@ export default function TableNF(props) {
       .then((res) => {
         //console.log(res);
         //console.log(res.data);
-        alert('Success');
-        console.log(cnpjEmitente);
+        alert('Success');        
         onShowDashboard();
       })
       .catch((error) => {

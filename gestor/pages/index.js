@@ -16,7 +16,8 @@ class Home extends Component {
     products: [],
     login:[],
     cnpjEmitente:'',
-    show: true,    
+    show: true,
+    showDashboard: false,    
   };
   handleUpload = (files) => {
     const uploadedFiles = files.map((file) => ({
@@ -256,6 +257,10 @@ class Home extends Component {
   /* Fim processXML*/
 
   onShowDashboard = () =>{
+    this.setState({
+      show: true,
+      products: [],
+    });
     console.log('funcionou');
   }
 
@@ -265,7 +270,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {nfs, products, cnpjEmitente, show} = this.state;    
+    const {nfs, products, show} = this.state;    
     return (
       <div className="container">
         <Head>
@@ -279,7 +284,8 @@ class Home extends Component {
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }   
         {!!show && <Content />} 
-        {!!products.length && <TableNF products={products} cnpjEmitente={cnpjEmitente} onShowDashboard={this.onShowDashboard}/> }
+        {!!products.length && <TableNF products={products} onShowDashboard={this.onShowDashboard}/> }
+
         <GlobalStyle />
       </div>
     );
