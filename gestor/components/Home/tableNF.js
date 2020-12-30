@@ -30,13 +30,17 @@ export default function TableNF(props) {
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
-    console.log(cnpjEmitente);
+    
 
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
       const productsWithFreight = products.map((product) => {
         return{
         nnf: product.nnf,
+        cnpjEmitente: product.cnpjEmitente,
+        emitente: product.emitente,
+        cnpjDestinatario: product.cnpjDestinatario,
+        destinatario: product.destinatario,
         cean: product.cean,
         ceantrib: product.ceantrib,
         xprod: product.xprod,
@@ -80,8 +84,8 @@ export default function TableNF(props) {
       const response = await axios
       .post(`https://it-gestor.vercel.app/api/product`, allProducts)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        //console.log(res);
+        //console.log(res.data);
         alert('Success');
         console.log(cnpjEmitente);
       })

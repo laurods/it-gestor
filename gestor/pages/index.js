@@ -60,7 +60,12 @@ class Home extends Component {
     const cEAN = nf.getElementsByTagName('cEAN'); //Codigo de barras da caixa
     const cEANTrib = nf.getElementsByTagName('cEANTrib'); // codigo de barras do produto que está dentro da caixa
     const tProd = nf.getElementsByTagName('ICMSTot'); // total dos produtos da nota para calculo do indice de frete
-    const totalProducts = tProd[0].children[8].innerHTML;    
+    const totalProducts = tProd[0].children[8].innerHTML;
+    const emitente = nf.getElementsByTagName('xNome')[0].innerHTML;
+    const destinatario = nf.getElementsByTagName('xNome')[1].innerHTML;
+    const cnpjEmitente = nf.getElementsByTagName('CNPJ')[0].innerHTML;
+    const cnpjDestinatario = nf.getElementsByTagName('CNPJ')[1].innerHTML;
+    const modFrete = nf.getElementsByTagName('modFrete')[0].innerHTML;     
     /*-------------------------------------------------------*/
     // Padronizando os dados dos valores de IPI
     const allipi = nf.getElementsByTagName('IPI');
@@ -145,6 +150,10 @@ class Home extends Component {
     const nfList = det.det.map((produto, indice) => {
       const row = {
         nnf: nNF,
+        cnpjEmitente: cnpjEmitente,
+        emitente: emitente,
+        cnpjDestinatario: cnpjDestinatario,
+        destinatario: destinatario,
         cean: cean.cean[indice],
         ceantrib: ceantrib.ceantrib[indice],
         xprod: xprod.xprod[indice],
@@ -190,12 +199,8 @@ class Home extends Component {
     //console.table(nfList);
     //Fim Criando novo oobjeto nfList com atributos calculados.
     /*-------------------------------------------------------*/
-    //Criando novo objeto nfObject com atributos    
-    const emitente = nf.getElementsByTagName('xNome')[0].innerHTML;
-    const destinatario = nf.getElementsByTagName('xNome')[1].innerHTML;
-    const cnpjEmitente = nf.getElementsByTagName('CNPJ')[0].innerHTML;
-    const cnpjDestinatario = nf.getElementsByTagName('CNPJ')[1].innerHTML;
-    const modFrete = nf.getElementsByTagName('modFrete')[0].innerHTML;     
+    //Criando novo objeto nfObject com atributos   
+       
     const nfObject = {
       nNF,
       emitente,
