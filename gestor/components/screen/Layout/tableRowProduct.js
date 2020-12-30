@@ -55,6 +55,7 @@ export default function Row(props) {
                             <TableCell align="right">Vlr. Produtos</TableCell>
                             <TableCell align="right">Ipi</TableCell>
                             <TableCell align="right">ST</TableCell>
+                            <TableCell align="right">Difça ICMS</TableCell>
                             <TableCell align="right">Frete</TableCell>
                             <TableCell align="right">Custo Total</TableCell>
                             
@@ -70,6 +71,7 @@ export default function Row(props) {
                             <TableCell align="right">{row.vprod}</TableCell>
                             <TableCell align="right">{row.ipi}</TableCell>
                             <TableCell align="right">{row.icmsst}</TableCell>
+                            <TableCell align="right">{row.vDifcaIcms}</TableCell>                            
                             <TableCell align="right">{row.vfrete}</TableCell>
                             <TableCell align="right">{row.custoTotal}</TableCell>                            
                             </TableRow>
