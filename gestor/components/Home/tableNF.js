@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -80,6 +81,7 @@ export default function TableNF(props) {
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        alert('Success');
       })
       .catch((error) => {
         console.log(error.res.data);
