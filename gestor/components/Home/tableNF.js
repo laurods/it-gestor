@@ -58,6 +58,8 @@ export default function TableNF(props) {
         }        
       })     
       setAllProducts(productsWithFreight);
+      console.log(products);
+      console.log(productsWithFreight);
     };
 
     const onSearchTextChange = (({ target }) => {     
