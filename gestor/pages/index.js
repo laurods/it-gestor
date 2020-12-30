@@ -261,7 +261,7 @@ class Home extends Component {
       show: true,
       products: [],
     });
-    console.log('funcionou');
+   
   }
 
   componentWillUnmount() {

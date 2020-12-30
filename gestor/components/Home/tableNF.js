@@ -29,7 +29,8 @@ export default function TableNF(props) {
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
-    const [allFilteredProducts, setAllFilteredProducts] = useState('');    
+    const [allFilteredProducts, setAllFilteredProducts] = useState('');
+    console.log(products);    
     
 
     const handleCustoFrete = () =>{
@@ -85,8 +86,7 @@ export default function TableNF(props) {
       .post(`https://it-gestor.vercel.app/api/product`, allProducts)
       .then((res) => {
         //console.log(res);
-        //console.log(res.data);
-        alert('Success');        
+        //console.log(res.data);               
         onShowDashboard();
       })
       .catch((error) => {
