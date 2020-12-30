@@ -24,8 +24,7 @@ const useStyles = makeStyles(() => ({
     },
   }));
 export default function TableNF(props) {
-    const classes = useStyles();
-    let history = useHistory();    
+    const classes = useStyles();  
     const { products, cnpjEmitente, onShowDashboard } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
