@@ -256,7 +256,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {nfs, products, login, show} = this.state;    
+    const {nfs, products, cnpjEmitente, show} = this.state;    
     return (
       <div className="container">
         <Head>
