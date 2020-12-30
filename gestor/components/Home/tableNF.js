@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -24,13 +25,13 @@ const useStyles = makeStyles(() => ({
     },
   }));
 export default function TableNF(props) {
-    const classes = useStyles();    
+    const classes = useStyles();
+    let history = useHistory();    
     const { products, cnpjEmitente } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
-    const [allFilteredProducts, setAllFilteredProducts] = useState('');
-    console.log(products);
+    const [allFilteredProducts, setAllFilteredProducts] = useState('');    
     
 
     const handleCustoFrete = () =>{
@@ -89,6 +90,7 @@ export default function TableNF(props) {
         //console.log(res.data);
         alert('Success');
         console.log(cnpjEmitente);
+        history.push('/about')
       })
       .catch((error) => {
         console.log(error.res.data);
