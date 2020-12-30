@@ -54,12 +54,11 @@ export default function TableNF(props) {
         ifrete:product.ifrete,
         vfrete: 1*(parseFloat(product.ifrete) * parseFloat(valor)).toFixed(2),
         custoUn:1*((product.custoTotal + ((parseFloat(product.ifrete) * parseFloat(valor))))/parseFloat(product.qcom)).toFixed(2),
-        custoTotal:product.custoTotal + ((parseFloat(product.ifrete) * parseFloat(valor))),
+        custoTotal:1*(product.custoTotal + ((parseFloat(product.ifrete) * parseFloat(valor)))).toFixed(2),
         }        
       })     
       setAllProducts(productsWithFreight);
-      console.log(products);
-      console.log(productsWithFreight);
+     
     };
 
     const onSearchTextChange = (({ target }) => {     
