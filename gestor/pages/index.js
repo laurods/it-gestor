@@ -268,7 +268,7 @@ class Home extends Component {
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }   
         {!!show && <Content />} 
-        {!!products.length && <TableNF products={products}/> }
+        {!!products.length && <TableNF products={products} login={login}/> }
         <GlobalStyle />
       </div>
     );
