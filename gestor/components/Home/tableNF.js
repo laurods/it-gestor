@@ -29,6 +29,7 @@ export default function TableNF(props) {
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
+
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
       const productsWithFreight = products.map((product) => {
@@ -72,7 +73,21 @@ export default function TableNF(props) {
       }
       setAllFilteredProducts(filteredProducts)
     }
-   
+
+    const saveProducts = async () => {
+      const response = await axios
+      .post(`https://it-gestor.vercel.app/api/product`, allProducts)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error.res.data);
+        console.log(error.res.status);
+        console.log(error.res.headers);
+      });
+     
+    }
 
     return (
         <div>
@@ -111,6 +126,7 @@ export default function TableNF(props) {
           variant="contained"
           color="primary"
           size="large"
+          onClick={saveProducts}
           startIcon={<SaveIcon />}
           
           >
