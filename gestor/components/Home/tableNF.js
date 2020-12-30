@@ -26,6 +26,9 @@ export default function TableNF(props) {
     const classes = useStyles();    
     const { products } = props;
     const [allProducts, setAllProducts] = useState(products);
+    const [searchText, setSearchText] = useState('');
+    const [isFiltered, setIsFiltered] = useState(false);
+    const [allFilteredProducts, setAllFilteredProducts] = useState('');
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
       const productsWithFreight = products.map((product) => {
@@ -51,11 +54,34 @@ export default function TableNF(props) {
       setAllProducts(productsWithFreight);
     };
 
+    const onSearchTextChange = (({ target }) => {     
+      const value = target.value;
+      setSearchText(value);
+      searchProduct(value);
+    });
+
+    const searchProduct = (value) =>{
+      let filteredProducts = allProducts
+      .filter((product) => 
+      product.xprod.toLowerCase().includes(value.toLowerCase()) ||
+      product.ceantrib.includes(value));
+      if(value ===''){
+        setIsFiltered(false);
+      }else{
+        setIsFiltered(true);
+      }
+      setAllFilteredProducts(filteredProducts)
+    }
+   
+
     return (
         <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>         
-            <SearchBar />         
+            <SearchBar 
+            searchText = {searchText}
+            onSearchTextChange = {onSearchTextChange} 
+            />         
           </Grid>
 
           <Grid item xs={2}>
@@ -103,11 +129,16 @@ export default function TableNF(props) {
                           <TableCell align="right">Custo Un</TableCell>
                           <TableCell align="right">Cod. Barras</TableCell>         
                       </TableRow>
-                      </TableHead>
-                      <TableBody>
-                      {allProducts.map((row) => (
+                      </TableHead>                   
+                       <TableBody>
+                         {isFiltered?
+                         allFilteredProducts.map((row) => (
+                           <TableRowProduct key={row.id} row={row} />
+                       )):
+                       allProducts.map((row) => (
                         <TableRowProduct key={row.id} row={row} />
-                    ))}
+                      ))
+                      }
                       </TableBody>
                   </Table>
                   </TableContainer>

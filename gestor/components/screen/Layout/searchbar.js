@@ -63,8 +63,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
+  const { searchText, onSearchTextChange} = props;
 
   return (
     <div className={classes.root}>
@@ -87,6 +88,12 @@ export default function SearchAppBar() {
             </div>
             <InputBase
               placeholder="Search…"
+              id="searchtext"
+              type="text"
+              name="searchText"
+              autoComplete="off"
+              value={searchText}
+              onChange={onSearchTextChange}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

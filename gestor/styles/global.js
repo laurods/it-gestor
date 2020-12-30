@@ -23,8 +23,8 @@ html, body, #root{
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    //justify-content: center;
+    //align-items: center;
    }
 
   main {
