@@ -3,13 +3,10 @@ import { connectToDatabase } from '../../../util/mongodb';
 export default async (req, res) => {
   if (req.method === 'GET') {
     try {
-      const email = req.query;
-      res.status(200).json({ email} );
-      /*
+      const email = req.query;     
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').findOne({});
-      res.status(200).json(response.ops[0]);
-      */
+      const response = await db.collection('users').findOne({ email });
+      res.status(200).json(response.ops[0]);      
     } catch {
       print(e);
     }
