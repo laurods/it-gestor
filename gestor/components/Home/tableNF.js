@@ -81,19 +81,21 @@ export default function TableNF(props) {
     }
 
     const saveProducts = async () => {
+      /*
       const response = await axios
       .post(`https://it-gestor.vercel.app/api/product`, allProducts)
       .then((res) => {
         //console.log(res);
         //console.log(res.data);               
-        onShowDashboard();
+        //onShowDashboard();
       })
       .catch((error) => {
         console.log(error.res.data);
         console.log(error.res.status);
         console.log(error.res.headers);
       });
-     
+      */
+      onShowDashboard();
     }
 
     return (

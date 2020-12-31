@@ -15,7 +15,7 @@ export default class Upload extends Component {
   render() {
     const { onUpload } = this.props;
     return (
-      <div>
+      <main>
         <Dropzone accept="text/xml" onDropAccepted={onUpload}>
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <DropContainer
@@ -28,7 +28,7 @@ export default class Upload extends Component {
             </DropContainer>
           )}
         </Dropzone>
-      </div>
+      </main>
     );
   }
 }

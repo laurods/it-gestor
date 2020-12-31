@@ -28,7 +28,7 @@ html, body, #root{
    }
 
   main {
-    padding: 5rem 0;
+    padding: 1rem 0;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -108,6 +108,7 @@ html, body, #root{
     max-width: 800px;
     margin-top: 3rem;
   }
+  
 
   .card {
     margin: 1rem;
@@ -119,6 +120,9 @@ html, body, #root{
     border: 1px solid #eaeaea;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .card strong {
+    text-align: center;
   }
 
   .card:hover,

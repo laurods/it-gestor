@@ -6,7 +6,7 @@ export default function Top() {
           <h1 className="title">            
             <a href="#">itGestor</a>
           </h1>
-          <h2 className="subtitle">Gerêncie os custos das mercadorias</h2>
+          <h2 className="subtitle">Calcule os custos das mercadorias</h2>
           <h2 className="subtitle">Lucre mais comprando melhor!</h2>
         </main>
     );

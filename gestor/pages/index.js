@@ -7,6 +7,7 @@ import Upload from '../components/Upload';
 import Top from '../components/Home/top';
 import Content from '../components/Home/content';
 import TableNF from '../components/Home/tableNF';
+import ContentWhithSignIn from '../components/Home/contentWhithSignIn';
 //import Link from 'next/link'
 
 class Home extends Component {
@@ -17,6 +18,7 @@ class Home extends Component {
     login:[],
     cnpjEmitente:'',
     show: true,
+    showContentWhithSignIn: true,
     showDashboard: false,    
   };
   handleUpload = (files) => {
@@ -228,7 +230,8 @@ class Home extends Component {
       nfs: this.state.nfs.concat(nfObject),
       login: this.state.login.concat(loginObject),
       cnpjEmitente: cnpjEmitente,
-      show: false,     
+      show: false,
+      showContentWhithSignIn: false,     
     });
     /*Fim Atualiza o state*/
     /* Salva no banco de dados */
@@ -262,6 +265,7 @@ class Home extends Component {
     this.setState({
       show: true,
       products: [],
+      showContentWhithSignIn: true,
     });
    
   }
@@ -272,7 +276,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {nfs, products, show} = this.state;    
+    const {nfs, products, show, showContentWhithSignIn} = this.state;    
     return (
       <div className="container">
         <Head>
@@ -284,9 +288,11 @@ class Home extends Component {
           />
         </Head>
         {!!show && <Top /> }
-        {!!show && <Upload onUpload={this.handleUpload} /> }   
+        {!!show && <Upload onUpload={this.handleUpload} /> }
+        {!!showContentWhithSignIn && <ContentWhithSignIn /> }   
         {!!show && <Content />} 
         {!!products.length && <TableNF products={products} onShowDashboard={this.onShowDashboard}/> }
+        
 
         <GlobalStyle />
       </div>
