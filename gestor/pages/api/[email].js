@@ -1,15 +1,18 @@
 import { connectToDatabase } from '../../util/mongodb';
 
 export default async (req, res) => {
-  if (req.method === 'POST') {
+  if (req.method === 'GET') {
     try {
-      const user = req.body;
+      const email = req.query;
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').insertOne(user);
+      const response = await db.collection('users').findOne({email});
       res.status(200).json(response.ops[0]);
     } catch {
       print(e);
     }
+  } else {
+    //  block of code to be executed if the condition1 is false and condition2 is false
   }
-  
+
+
 };
