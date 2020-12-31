@@ -1,11 +1,25 @@
-import SignIn from '../screen/Layout/signIn';
+import Button from '@material-ui/core/Button';
 
-export default function Content() {
+export default function Content(props) {
+    const { onshowContentWhithSignIn } = props;
+    const [open, setOpen] = React.useState(true);
 
     return (
        <main>   
-        <strong>Simples. Arraste o arquivo XML da nota de compra. Ou faça login para acessar itGestor</strong>                
-        <SignIn />
+        <strong>Simples. Arraste o arquivo XML da nota de compra. Ou clique entrar para acessar itGestor</strong>
+        {!!open &&
+            <Button
+            variant="contained"
+            color="primary"
+            size="small" 
+            onClick={()=>{onshowContentWhithSignIn()}}
+            onClick={() => setOpen(false)}      
+           >
+            Entrar
+          </Button> 
+        }        
+                     
+       
     </main>
     );
 }

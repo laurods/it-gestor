@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
   }));
 export default function TableNF(props) {
     const classes = useStyles();  
-    const { products, onShowDashboard } = props;
+    const { products, cnpjEmitente, onShowDashboard } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
@@ -81,22 +81,54 @@ export default function TableNF(props) {
     }
 
     const saveProducts = async () => {
-      /*
+      
       const response = await axios
       .post(`https://it-gestor.vercel.app/api/product`, allProducts)
       .then((res) => {
         //console.log(res);
-        //console.log(res.data);               
-        //onShowDashboard();
+        //console.log(res.data); 
       })
       .catch((error) => {
         console.log(error.res.data);
         console.log(error.res.status);
         console.log(error.res.headers);
       });
-      */
-      onShowDashboard();
+      
     }
+
+    const saveLogin = async () => {
+      const user = {
+        email: document.getElementById('email').value,
+        cnpjEmitente,
+      }
+      if(user.email==''){
+        alert('O Email é Obrigatório para salvar os produtos');
+        return;
+      }
+      
+      const response = await axios
+      .post(`https://it-gestor.vercel.app/api/user`, user)
+      .then((res) => {
+        //console.log(res);
+        //console.log(res.data); 
+      })
+      .catch((error) => {
+        console.log(error.res.data);
+        console.log(error.res.status);
+        console.log(error.res.headers);
+      });
+      
+    }
+
+    const saveLoginAndProducts = () => {     
+      saveLogin();
+      saveProducts();
+      console.log('salvo com sucesso');
+      //onShowDashboard();
+    }
+
+    
+
 
     return (
         <div>
@@ -107,17 +139,31 @@ export default function TableNF(props) {
             onSearchTextChange = {onSearchTextChange} 
             />         
           </Grid>
+          
+          <Grid item xs={2}>
+          <TextField
+            variant="outlined"            
+            required
+            fullWidth
+            id="email"
+            label="Informe seu e-mail"
+            name="email"
+            autoComplete="email"
+          />  
+          </Grid>
 
           <Grid item xs={2}>
           <TextField
           id="valor-frete"
           label="Valor do Frete" 
           size="normal"
+          required
           fullWidth
           defaultValue="0.00"
           variant="outlined"                              
           />
           </Grid>
+
           <Grid item xs={2}>
           <Button
           variant="contained"
@@ -130,12 +176,14 @@ export default function TableNF(props) {
           </Button>
           </Grid>
 
+          
+
           <Grid item xs={2}>
           <Button
           variant="contained"
           color="primary"
           size="large"
-          onClick={saveProducts}
+          onClick={()=>{saveLoginAndProducts()}}
           startIcon={<SaveIcon />}
           
           >

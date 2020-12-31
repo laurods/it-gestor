@@ -37,16 +37,27 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>       
-        <form className={classes.form} noValidate>         
+        <form className={classes.form} noValidate>
+        <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Informe seu e-mail"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />         
           <Link href="#">
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
           >
-            QUERO ACESSAR 
+            ACESSAR 
           </Button>
 
           </Link>       

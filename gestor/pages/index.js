@@ -8,17 +8,16 @@ import Top from '../components/Home/top';
 import Content from '../components/Home/content';
 import TableNF from '../components/Home/tableNF';
 import ContentWhithSignIn from '../components/Home/contentWhithSignIn';
+import SignIn from '../components/screen/Layout/signIn';
 //import Link from 'next/link'
 
 class Home extends Component {
   state = {
     uploadedFiles: [],
-    nfs: [],
-    products: [],
-    login:[],
+    products: [],    
     cnpjEmitente:'',
     show: true,
-    showContentWhithSignIn: true,
+    showContentWhithSignIn: false,
     showDashboard: false,    
   };
   handleUpload = (files) => {
@@ -41,19 +40,7 @@ class Home extends Component {
   /*Incio CreateNF*/
   createNF = (data) => {
     const nf = data;
-    const nNF = nf.getElementsByTagName('nNF')[0].innerHTML;
-    
-    /*-------------------------------------------------------*/
-    // Verifica se a NF já existe
-    const isNFexist = this.state.nfs.filter((nf) => nf === nNF);
-    if (isNFexist.length > 0) {
-      alert('Nota fiscal já processada');
-      return;
-    }
-    // Fim Verifica se a NF já existe
-
-    /*-------------------------------------------------------*/
-    
+    const nNF = nf.getElementsByTagName('nNF')[0].innerHTML;    
     const Det = nf.getElementsByTagName('det');
     const xProd = nf.getElementsByTagName('xProd');
     const uCom = nf.getElementsByTagName('uCom');
@@ -68,9 +55,7 @@ class Home extends Component {
     const destinatario = nf.getElementsByTagName('xNome')[1].innerHTML;
     const cnpjEmitente = nf.getElementsByTagName('CNPJ')[0].innerHTML;
     const cnpjDestinatario = nf.getElementsByTagName('CNPJ')[1].innerHTML;
-    const modFrete = nf.getElementsByTagName('modFrete')[0].innerHTML; 
     
-        
     /*-------------------------------------------------------*/
     // Padronizando os dados dos valores de IPI
     const allipi = nf.getElementsByTagName('IPI');
@@ -203,32 +188,10 @@ class Home extends Component {
     });
     //console.table(nfList);
     //Fim Criando novo oobjeto nfList com atributos calculados.
-    /*-------------------------------------------------------*/
-    //Criando novo objeto nfObject com atributos   
-       
-    const nfObject = {
-      nNF,
-      emitente,
-      cnpjEmitente,
-      destinatario,
-      cnpjDestinatario,
-      modFrete,   
-    }   
-    // Fim Criando novo objeto nfObject com atributos
-    /*-------------------------------------------------------*/
-    //Criando novo objeto LoginObject com atributos
-    const telefoneDestinatario = nf.getElementsByTagName('fone')[1].innerHTML;
-    const loginObject ={
-      user: cnpjEmitente,
-      password: telefoneDestinatario
-    }
-     //Fim Criando novo objeto LoginObject com atributos
-     /*-------------------------------------------------------*/    
+    /*-------------------------------------------------------*/     
     /*Atualiza o state*/
     this.setState({
       products: this.state.products.concat(nfList),
-      nfs: this.state.nfs.concat(nfObject),
-      login: this.state.login.concat(loginObject),
       cnpjEmitente: cnpjEmitente,
       show: false,
       showContentWhithSignIn: false,     
@@ -264,10 +227,13 @@ class Home extends Component {
   onShowDashboard = () =>{
     this.setState({
       show: true,
-      products: [],
+      products: [],      
+    });
+  }
+  onshowContentWhithSignIn = () =>{
+    this.setState({
       showContentWhithSignIn: true,
     });
-   
   }
 
   componentWillUnmount() {
@@ -276,11 +242,11 @@ class Home extends Component {
     );
   }
   render() {
-    const {nfs, products, show, showContentWhithSignIn} = this.state;    
+    const {products, cnpjEmitente, show, showContentWhithSignIn} = this.state;    
     return (
       <div className="container">
         <Head>
-          <title>Create Next App</title>
+          <title>itGestor</title>
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="stylesheet"
@@ -289,9 +255,14 @@ class Home extends Component {
         </Head>
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }
-        {!!showContentWhithSignIn && <ContentWhithSignIn /> }   
+        {!!show && <ContentWhithSignIn onshowContentWhithSignIn={this.onshowContentWhithSignIn}/> }
+        {!!showContentWhithSignIn && <SignIn /> }   
         {!!show && <Content />} 
-        {!!products.length && <TableNF products={products} onShowDashboard={this.onShowDashboard}/> }
+        {!!products.length && <TableNF 
+        products={products} 
+        onShowDashboard={this.onShowDashboard}
+        cnpjEmitente={cnpjEmitente}
+        /> }
         
 
         <GlobalStyle />
