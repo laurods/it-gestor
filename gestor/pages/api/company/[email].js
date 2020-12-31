@@ -5,7 +5,7 @@ export default async (req, res) => {
     try {
       const email = req.query;     
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').findOne();
+      const response = await db.collection('users').findOne({ email });
       res.status(200).json(response);      
     } catch {
       print(e);
