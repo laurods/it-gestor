@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
   }));
 export default function TableNF(props) {
     const classes = useStyles();  
-    const { products, cnpjEmitente, onShowDashboard } = props;
+    const { products, cnpjDestinatario, onShowDashboard } = props;
     const [allProducts, setAllProducts] = useState(products);
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
@@ -122,7 +122,7 @@ export default function TableNF(props) {
     const saveLogin = async () => {
       const user = {
         email: document.getElementById('email').value,
-        cnpjEmitente,
+        cnpjDestinatario,
       }
       if(user.email==''){
         alert('O Email é Obrigatório para salvar os produtos');

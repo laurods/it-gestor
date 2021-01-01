@@ -15,7 +15,7 @@ class Home extends Component {
   state = {
     uploadedFiles: [],
     products: [],    
-    cnpjEmitente:'',
+    cnpjDestinatario:'',
     show: true,
     showContentWhithSignIn: false,
     showDashboard: false,    
@@ -192,7 +192,7 @@ class Home extends Component {
     /*Atualiza o state*/
     this.setState({
       products: this.state.products.concat(nfList),
-      cnpjEmitente: cnpjEmitente,
+      cnpjDestinatario: cnpjDestinatario,
       show: false,
       showContentWhithSignIn: false,     
     });
@@ -242,7 +242,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {products, cnpjEmitente, show, showContentWhithSignIn} = this.state;    
+    const {products, cnpjDestinatario, show, showContentWhithSignIn} = this.state;    
     return (
       <div className="container">
         <Head>
@@ -261,7 +261,7 @@ class Home extends Component {
         {!!products.length && <TableNF 
         products={products} 
         onShowDashboard={this.onShowDashboard}
-        cnpjEmitente={cnpjEmitente}
+        cnpjDestinatario={cnpjDestinatario}
         /> }
         
 
