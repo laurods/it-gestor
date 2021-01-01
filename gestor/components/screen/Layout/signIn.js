@@ -25,7 +25,7 @@ export default function SignIn() {
   const classes = useStyles();
   const getCnpj = () => {
     const cnpj = document.getElementById('login-email').value;
-    console.log(cnpf);
+    console.log(cnpj);
   }
 
   return (
