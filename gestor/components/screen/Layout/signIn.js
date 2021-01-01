@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
   const [cnpj, setCnpj] = useState('');
 
   const getCnpj = async () => {
@@ -69,14 +70,19 @@ export default function SignIn() {
             ACESSAR 
           </Button>
           {!!cnpj &&
+          <Button>
             <Link
             href="prospect/"  
             component="button"
             fullWidth
             variant="contained"
+            onClick={preventDefault}
             >
+            <a></a>
             itGestor
           </Link>
+          </Button>
+          
 
           }
           
