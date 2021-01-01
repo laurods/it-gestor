@@ -83,7 +83,7 @@ export default function TableNF(props) {
     const saveProducts = async () => {
       
       const response = await axios
-      .post(`https://it-gestor.vercel.app/api/product/insetMany`, allProducts)
+      .post(`https://it-gestor.vercel.app/api/product/insertMany`, allProducts)
       .then((res) => {
         //console.log(res);
         //console.log(res.data); 
