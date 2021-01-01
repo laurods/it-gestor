@@ -71,8 +71,8 @@ export default function SignIn() {
           </Button>
           {!!cnpj &&
           <Link
-          href="/main"
-          cnpj={cnpj}
+          href={{ pathname: '/main', query: { name: 'leangchhean' }}}
+                   
           >          
           <a>itGestor</a>
           </Link>
