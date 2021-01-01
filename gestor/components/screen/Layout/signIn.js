@@ -32,6 +32,10 @@ const useStyles = makeStyles(() => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const getCnpj = () => {
+    cnpj = document.getElementById('login-email').value;
+    console.log(cnpf);
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -43,9 +47,9 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
+            id="login-email"
             label="Informe seu e-mail"
-            name="email"
+            name="login-email"
             autoComplete="email"
             autoFocus
           />         

@@ -234,7 +234,7 @@ class Home extends Component {
     this.setState({
       showContentWhithSignIn: true,
     });
-    console.log('abrir');
+    
   }
 
   componentWillUnmount() {
