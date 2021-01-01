@@ -70,7 +70,13 @@ export default function SignIn() {
             ACESSAR 
           </Button>
           {!!cnpj &&
-            <a href="/prospect">itGestor</a>
+          <Link
+          href="/main"
+          cnpj={cnpj}
+          >          
+          <a>itGestor</a>
+          </Link>
+            
           }
           
       </div>     
