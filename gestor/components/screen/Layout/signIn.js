@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const router = useRouter();
   const preventDefault = (event) => event.preventDefault();
   const [cnpj, setCnpj] = useState('');
 
@@ -29,7 +31,8 @@ export default function SignIn() {
     .then((res) => {
       console.log(res);
       console.log(res.data);
-      setCnpj(res.data.cnpjEmitente); 
+      //setCnpj(res.data.cnpjEmitente);
+      router.push('/main')
     })
     .catch((error) => {
       console.log(error.res.data);
