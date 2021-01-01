@@ -80,6 +80,29 @@ export default function TableNF(props) {
       setAllFilteredProducts(filteredProducts)
     }
 
+    const saveProductsByNF = async () => {
+      const productByNF = allProducts.reduce((acc, value) =>{
+        if(!acc[value.nnf]){
+          acc[value.nnf] = [];
+        }
+        acc[value.nnf].push(value);
+        return acc;
+      }, {});
+      
+      const response = await axios
+      .post(`https://it-gestor.vercel.app/api/nf/insertOne`, productByNF)
+      .then((res) => {
+        //console.log(res);
+        //console.log(res.data); 
+      })
+      .catch((error) => {
+        console.log(error.res.data);
+        console.log(error.res.status);
+        console.log(error.res.headers);
+      });
+      
+    }
+
     const saveProducts = async () => {
       
       const response = await axios
@@ -123,6 +146,7 @@ export default function TableNF(props) {
     const saveLoginAndProducts = () => {     
       saveLogin();
       saveProducts();
+      saveProductsByNF();
       console.log('salvo com sucesso');
       //onShowDashboard();
     }
