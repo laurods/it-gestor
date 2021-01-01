@@ -22,9 +22,9 @@ export default function SignIn() {
     console.log(email)
     if(email !== ''){
       const response = await axios
-    .get(`https://it-gestor.vercel.app/api/user/`, email)
+    .get(`https://it-gestor.vercel.app/api/user/${email}`)
     .then((res) => {
-      //console.log(res);
+      console.log(res);
       console.log(res.data); 
     })
     .catch((error) => {
