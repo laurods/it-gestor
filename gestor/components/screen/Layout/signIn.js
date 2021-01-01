@@ -16,13 +16,13 @@ const useStyles = makeStyles(() => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  
+
   const getCnpj = async () => {
     const email = document.getElementById('login-email').value;
     console.log(email)
     if(email !== ''){
       const response = await axios
-    .post(`https://it-gestor.vercel.app/api/user/`, email)
+    .get(`https://it-gestor.vercel.app/api/user/`, email)
     .then((res) => {
       //console.log(res);
       console.log(res.data); 
