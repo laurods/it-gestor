@@ -27,12 +27,7 @@ export default function SignIn() {
     const email = document.getElementById('login-email').value;
     console.log(email)
     if(email !== ''){
-      console.log('tem email');
-    }else{
-      alert('Digite um e-mail');
-    }
-    /*
-    const response = await axios
+      const response = await axios
     .post(`https://it-gestor.vercel.app/api/user/`, email)
     .then((res) => {
       //console.log(res);
@@ -43,7 +38,11 @@ export default function SignIn() {
       console.log(error.res.status);
       console.log(error.res.headers);
     });
-    */
+      
+    }else{
+      alert('Digite um e-mail');
+    }
+    
   }
 
   return (
@@ -59,6 +58,7 @@ export default function SignIn() {
             label="Informe seu e-mail"
             name="login-email"
             autoComplete="email"
+            type="email"
             autoFocus
           />         
          
