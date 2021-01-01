@@ -148,7 +148,7 @@ export default function TableNF(props) {
       saveProducts();
       saveProductsByNF();
       console.log('salvo com sucesso');
-      //onShowDashboard();
+      onShowDashboard();
     }
 
     
