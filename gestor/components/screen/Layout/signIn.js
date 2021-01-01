@@ -32,7 +32,10 @@ export default function SignIn() {
       console.log(res.data.cnpjEmitente);
       //setCnpj(res.data.cnpjEmitente);
       
-      router.push('/main')
+      router.push({
+        pathname: '/prospect/[cnpj]',
+        query: { cnpj: res.data.cnpjEmitente },
+      })
     })
     .catch((error) => {
       console.log(error.res.data);
