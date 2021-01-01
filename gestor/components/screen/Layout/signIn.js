@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(() => ({
   paper: {   
@@ -16,6 +17,7 @@ const useStyles = makeStyles(() => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const [cnpj, setCnpj] = useState('');
 
   const getCnpj = async () => {
     const email = document.getElementById('login-email').value;
@@ -25,7 +27,8 @@ export default function SignIn() {
     .get(`https://it-gestor.vercel.app/api/user/${email}`)
     .then((res) => {
       console.log(res);
-      console.log(res.data); 
+      console.log(res.data);
+      setCnpj(res.data.cnpjEmitente); 
     })
     .catch((error) => {
       console.log(error.res.data);
@@ -65,6 +68,18 @@ export default function SignIn() {
           >
             ACESSAR 
           </Button>
+          {!!cnpj &&
+            <Link
+            href="prospect/"  
+            component="button"
+            fullWidth
+            variant="contained"
+            >
+            itGestor
+          </Link>
+
+          }
+          
       </div>     
     </Container>
   );
