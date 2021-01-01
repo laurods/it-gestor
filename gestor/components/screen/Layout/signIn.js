@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
 export default function SignIn() {
   const classes = useStyles();
   const getCnpj = () => {
-    cnpj = document.getElementById('login-email').value;
+    const cnpj = document.getElementById('login-email').value;
     console.log(cnpf);
   }
 
