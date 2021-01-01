@@ -130,7 +130,7 @@ export default function TableNF(props) {
       }
       
       const response = await axios
-      .post(`https://it-gestor.vercel.app/api/user/insertOne`, user)
+      .post(`https://it-gestor.vercel.app/api/user/updateOne`, user)
       .then((res) => {
         //console.log(res);
         //console.log(res.data); 
