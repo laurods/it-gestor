@@ -70,20 +70,7 @@ export default function SignIn() {
             ACESSAR 
           </Button>
           {!!cnpj &&
-          <Button>
-            <Link
-            href="prospect/"  
-            component="button"
-            fullWidth
-            variant="contained"
-            onClick={preventDefault}
-            >
-            <a></a>
-            itGestor
-          </Link>
-          </Button>
-          
-
+            <a href="/prospect">itGestor</a>
           }
           
       </div>     
