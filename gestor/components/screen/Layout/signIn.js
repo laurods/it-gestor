@@ -20,8 +20,7 @@ export default function SignIn() {
   const classes = useStyles();
   const router = useRouter();
   const preventDefault = (event) => event.preventDefault();
-  const [cnpj, setCnpj] = useState('');
-
+  
   const getCnpj = async () => {
     const email = document.getElementById('login-email').value;
     console.log(email)
@@ -30,8 +29,9 @@ export default function SignIn() {
     .get(`https://it-gestor.vercel.app/api/user/${email}`)
     .then((res) => {
       console.log(res);
-      console.log(res.data);
+      console.log(res.data.cnpjEmitente);
       //setCnpj(res.data.cnpjEmitente);
+      
       router.push('/main')
     })
     .catch((error) => {
@@ -71,17 +71,7 @@ export default function SignIn() {
             onClick={() => getCnpj()}            
           >
             ACESSAR 
-          </Button>
-          {!!cnpj &&
-          <Link
-          href="/main"
-          cnpj={cnpj}
-          >          
-          <a>itGestor</a>
-          </Link>
-            
-          }
-          
+          </Button>          
       </div>     
     </Container>
   );
