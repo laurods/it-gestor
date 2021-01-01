@@ -24,8 +24,26 @@ const useStyles = makeStyles(() => ({
 export default function SignIn() {
   const classes = useStyles();
   const getCnpj = () => {
-    const cnpj = document.getElementById('login-email').value;
-    console.log(cnpj);
+    const email = document.getElementById('login-email').value;
+    console.log(email)
+    if(email !== ''){
+      console.log('tem email');
+    }else{
+      alert('Digite um e-mail');
+    }
+    /*
+    const response = await axios
+    .post(`https://it-gestor.vercel.app/api/user/`, email)
+    .then((res) => {
+      //console.log(res);
+      console.log(res.data); 
+    })
+    .catch((error) => {
+      console.log(error.res.data);
+      console.log(error.res.status);
+      console.log(error.res.headers);
+    });
+    */
   }
 
   return (
