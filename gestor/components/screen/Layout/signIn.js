@@ -24,10 +24,7 @@ const useStyles = makeStyles(() => ({
   form: {
     width: '100%', // Fix IE 11 issue.
    
-  },
-  submit: {
-   
-  },
+  }, 
 }));
 
 export default function SignIn() {
@@ -53,19 +50,18 @@ export default function SignIn() {
             autoComplete="email"
             autoFocus
           />         
-          <Link href="#">
+         
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="secondary"
-            onClick={() => getCnpj()}
-            className={classes.submit}
+            onClick={() => getCnpj()}            
           >
             ACESSAR 
           </Button>
 
-          </Link>       
+              
         </form>
       </div>     
     </Container>
