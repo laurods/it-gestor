@@ -7,7 +7,9 @@ import Button from '@material-ui/core/Button';
 
 export default function Main() {
   const router = useRouter();
+  const {cnpj} = router.query;
   console.log(router.query)
+  console.log(cnpj);
 
   return (
     <Container maxWidth="sm">
