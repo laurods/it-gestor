@@ -3,6 +3,12 @@ import Button from '@material-ui/core/Button';
 export default function Content(props) {
     const { onshowContentWhithSignIn } = props;
     const [open, setOpen] = React.useState(true);
+    const onHandleClick = ()=>{
+      setOpen(false)
+      onshowContentWhithSignIn()
+    }
+
+    
 
     return (
        <main>   
@@ -12,8 +18,7 @@ export default function Content(props) {
             variant="contained"
             color="primary"
             size="small" 
-            onClick={()=>{onshowContentWhithSignIn()}}
-            onClick={() => setOpen(false)}      
+            onClick={()=> onHandleClick()}               
            >
             Entrar
           </Button> 
