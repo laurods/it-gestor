@@ -14,17 +14,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(() => ({
-  paper: {
-   
+  paper: {   
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-
-  form: {
-    width: '100%', // Fix IE 11 issue.
-   
-  }, 
 }));
 
 export default function SignIn() {
@@ -37,8 +31,7 @@ export default function SignIn() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>       
-        <form className={classes.form} noValidate>
+      <div className={classes.paper}> 
         <TextField
             variant="outlined"
             margin="normal"
@@ -60,9 +53,6 @@ export default function SignIn() {
           >
             ACESSAR 
           </Button>
-
-              
-        </form>
       </div>     
     </Container>
   );
