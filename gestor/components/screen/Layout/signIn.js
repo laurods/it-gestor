@@ -59,6 +59,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             color="secondary"
+            onClick={() => getCnpj()}
             className={classes.submit}
           >
             ACESSAR 
