@@ -97,8 +97,10 @@ export default function CenteredGrid({ products }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
-  console.log(params);
+export async function getServerSideProps() {
+  const router = useRouter();
+  const { cnpj } = router.query;
+  alert(cnpj);  
   const { db } = await connectToDatabase();
   
   const products = await db.collection('products').find({}).toArray();
@@ -108,4 +110,5 @@ export async function getServerSideProps({ params }) {
       products: JSON.parse(JSON.stringify(products)),
     },
   };
+  
 }
