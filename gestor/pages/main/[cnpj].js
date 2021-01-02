@@ -97,8 +97,8 @@ export default function CenteredGrid({ products }) {
   );
 }
 
-export async function getServerSideProps() {
-  
+export async function getServerSideProps({ params }) {
+  console.log(params);
   const { db } = await connectToDatabase();
   
   const products = await db.collection('products').find({}).toArray();
