@@ -100,7 +100,7 @@ export default function CenteredGrid({ products }) {
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
 
-  const products = await db.collection('products').find({}).toArray();
+  const products = await db.collection('products').find({ cnpjDestinatario: cnpj }).toArray();
 
   return {
     props: {
