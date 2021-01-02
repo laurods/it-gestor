@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
 export default function CenteredGrid({ products }) {
   const classes = useStyles();
   const router = useRouter();
+  const { cnpj } = router.query; 
 
   const productByNF = products.reduce((acc, value) =>{
     if(!acc[value.nnf]){
@@ -88,7 +89,7 @@ export default function CenteredGrid({ products }) {
         </Grid>
         <Grid item xs={2}>
         <Paper className={classes.paper}>
-        CNPJ: {router.query.cnpj} 
+        CNPJ: {cnpj} 
         </Paper>  
         </Grid>       
       </Grid>
