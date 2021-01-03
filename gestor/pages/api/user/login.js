@@ -8,7 +8,7 @@ export default async (req, res) => {
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();
-        userPassword = res.json(response[0].password); 
+        userPassword = response[0].password; 
         compare(password, userPassword, function(err, result) {
             if(!err && result){
                 res.json({message: 'OK'});
