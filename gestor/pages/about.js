@@ -13,9 +13,9 @@ import {
 
 
 export default function About(props) {
-  const { profile, req } = props;
+  const { profile } = props;
   console.log(profile);
-  console.log(req);
+  
 
 
   return (
@@ -48,8 +48,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       baseApiUrl,
-      profile,
-      req,
+      profile,      
     },
   };
 }
