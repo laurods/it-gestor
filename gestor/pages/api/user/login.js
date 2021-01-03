@@ -4,10 +4,10 @@ import { compare } from 'bcrypt';
 export default async (req, res) => {
   if (req.method === 'POST') {
     const email = req.body;
-    let password = req.password;   
+    let password = req.body;   
     try {
         const { db } = await connectToDatabase();
-        const response = await db.collection('users').find({'email': 'verosimon@gmail.com'}).toArray();
+        const response = await db.collection('users').find({'email': email}).toArray();
         res.status(200).json(response);
         /*        
         const user = res.status(200).json(response.ops[0]);
