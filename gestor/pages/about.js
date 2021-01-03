@@ -7,10 +7,10 @@ import { connectToDatabase } from '../util/mongodb';
 
 
 export default function About({users}) { 
- 
+ console.log(users);
   return (
     <Container maxWidth="sm">
-      {users}
+      
       <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
           Next.js example
