@@ -1,5 +1,4 @@
 import { NextPageContext } from 'next';
-import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 
 export async function myGet(url, ctx){
