@@ -8,9 +8,7 @@ export default async (req, res) => {
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();
-        res.json(response);
-        /*        
-        const user = res.status(200).json(response.ops[0]);
+        res.json(response[0].password);        /*
         compare(password, user.password, function(err, result) {
             if(!err && result){
                 res.json({message: 'OK'});
