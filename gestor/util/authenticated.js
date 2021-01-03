@@ -25,7 +25,7 @@ export function verifyToken(jwtToken) {
 export function getAppCookies(req) {
   const parsedItems = {};
   if (req.headers.cookie) {
-      console.log(req.headers.cookie);
+      console.log('Não tem cookie');
     /*  
     const cookiesItems = req.headers.cookie.split('; ');
     cookiesItems.forEach(cookies => {
@@ -34,6 +34,8 @@ export function getAppCookies(req) {
       
     });
     */
+  }else{
+      console.log(req);
   }
   return parsedItems;
   
