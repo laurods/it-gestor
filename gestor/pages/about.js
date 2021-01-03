@@ -13,9 +13,9 @@ import {
 
 
 export default function About(props) {
-  const { profile, myContext } = props;
+  const { profile } = props;
   console.log(profile);
-  console.log(myContext);
+  
   
 
 
@@ -39,9 +39,7 @@ export default function About(props) {
 
 export async function getServerSideProps(context) {
   const { req } = context;
-  const { origin } = absoluteUrl(req);
-  const myContext = context;
-
+  const { origin } = absoluteUrl(req);  
   const baseApiUrl = `${origin}/api/about`;
 
   const { token } = getAppCookies(req);
@@ -50,8 +48,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       baseApiUrl,
-      profile,
-      myContext,      
+      profile,                
     },
   };
 }
