@@ -1,6 +1,5 @@
 import { connectToDatabase } from '../../../util/mongodb';
 import { hash } from 'bcrypt';
-import { has } from 'lodash';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
@@ -10,7 +9,7 @@ export default async (req, res) => {
       // Store hash in your password DB.
     try {       
       const user = {
-        name: data.email,
+        email: data.email,
         password: hash
       };
       const { db } = await connectToDatabase();
