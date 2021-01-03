@@ -10,7 +10,7 @@ export default async (req, res) => {
       // Store hash in your password DB.
     try {       
       const user = {
-        name: data.name,
+        name: data.email,
         password: hash
       };
       const { db } = await connectToDatabase();
