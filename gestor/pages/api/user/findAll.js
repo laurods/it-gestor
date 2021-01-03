@@ -10,12 +10,12 @@ export const authenticated = (fn) => async (req, res) => {
     });
   }
   
-export default authenticated(async (req, res) => {
+export default authenticated(async function getUsers (req, res) {
   if (req.method === 'GET') {
     try {             
       const { db } = await connectToDatabase();
       const response = await db.collection('users').find().toArray();
-      res.status(200).json(response);      
+      res.json(response);      
     } catch {
       print(e);
     }
