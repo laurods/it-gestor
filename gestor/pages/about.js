@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { verify } from 'jsonwebtoken';
 
-const authenticated = fn => async (req, res) => {
+export const authenticated = fn => async (req, res) => {
   verify(req.headers.authorization, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
     if(!err && decoded){
       return await fn(req, res);
@@ -16,8 +16,6 @@ const authenticated = fn => async (req, res) => {
 }
 
 export default authenticated(function About() { 
-  
-  
  
   return (
     <Container maxWidth="sm">
