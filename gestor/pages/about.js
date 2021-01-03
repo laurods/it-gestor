@@ -1,8 +1,8 @@
 import React from 'react';
 import {NextPageContext} from 'next';
-import { myGet } from './api/myGet';
+import { myGet } from '../pages/api/myGet';
 
-export default function About() {
+export default function User() {
   
   return (
    
@@ -14,8 +14,8 @@ export default function About() {
   );
 }
 
-About.getInitialProps = async (ctx) => {
+User.getInitialProps = async (ctx) => {
   
   //const json = await myGet('https://it-gestor.vercel.app/api/user/findAll', ctx);
-  //return {people:json}
+  return {ctx: ctx}
 }
