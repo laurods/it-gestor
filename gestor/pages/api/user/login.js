@@ -7,7 +7,7 @@ export default async (req, res) => {
     let password = req.password;   
     try {
         const { db } = await connectToDatabase();
-        const response = await db.collection('users').findOne(email);
+        const response = await db.collection('users').findOne({ "email" : email });
         res.status(200).json(response.ops[0]);
         /*        
         const user = res.status(200).json(response.ops[0]);
