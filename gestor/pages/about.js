@@ -3,42 +3,21 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import { verify } from 'jsonwebtoken';
 
+const authenticated = fn => async (req, res) => {
+  verify(req.headers.authorization, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
+    if(!err && decoded){
+      return await fn(req, res);
+    }
 
-export default function About() { 
-  const cars = [{
-    make: "audi",
-    model: "r8",
-    year: "2012"
-    },
-    {
-    make: "audi",
-    model: "rs5",
-    year: "2013"
-    },
-    {
-    make: "ford",
-    model: "mustang",
-    year: "2012"
-    },
-    {
-    make: "ford",
-    model: "fusion",
-    year: "2015"
-    },
-    {
-    make: "kia",
-    model: "optima",
-    year: "2012"
-    }];
+    res.status(500).json({message: 'Sorry you are not authenticated'});
+  });
+}
 
-   const carByMake = cars.reduce((acc, value) =>{
-     if(!acc[value.make]){
-       acc[value.make] = [];
-     }
-     acc[value.make].push(value);
-     return acc;
-   }, {});
+export default authenticated(function About() { 
+  
+  
  
   return (
     <Container maxWidth="sm">
@@ -52,4 +31,4 @@ export default function About() {
       </Box>
     </Container>
   );
-}
+});
