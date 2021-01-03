@@ -1,37 +1,53 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { connectToDatabase } from '../util/mongodb';
+import Link from 'next/link';
+
+/* middleware */
+import {
+  absoluteUrl,
+  getAppCookies,
+  verifyToken,
+  setLogout,
+} from '../util/authenticated';
+
+/* components */
 
 
-export default function About({users}) { 
- console.log(users);
+export default function About(props) {
+  const { profile } = props;
+  console.log(profile);
+
+
   return (
-    <Container maxWidth="sm">
-      
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
-        </Typography>
-        <Button variant="contained" color="primary">
-          Go to the main page
-        </Button>       
-      </Box>
-    </Container>
-  );
-};
-
-export async function getServerSideProps() {
+   
+      <div className="container">
+        <main>
+          <h1 className="title">About Page</h1>
+          {!profile ? (
+            <a href="/">Login to continue</a>
+          ) : (
+            <div>
+              <h1>Está Logado</h1>
+            </div>
+          )}
+        </main>
+      </div>
   
-  const { db } = await connectToDatabase();
-  const users = await db.collection('users').find().toArray();
+  );
+}
+
+export async function getServerSideProps(context) {
+  const { req } = context;
+  const { origin } = absoluteUrl(req);
+
+  const baseApiUrl = `${origin}/api/about`;
+
+  const { token } = getAppCookies(req);
+  const profile = token ? verifyToken(token.split(' ')[1]) : '';
 
   return {
     props: {
-      users: JSON.parse(JSON.stringify(users)),
+      baseApiUrl,
+      profile,
     },
   };
-  
 }
