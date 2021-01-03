@@ -15,7 +15,7 @@ export default async (req, res) => {
   if (req.method === 'GET') {
     try {             
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').find();
+      const response = await db.collection('users').find().toArray();
       res.status(200).json(response);      
     } catch {
       print(e);
