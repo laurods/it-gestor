@@ -13,8 +13,9 @@ import {
 
 
 export default function About(props) {
-  const { profile } = props;
+  const { profile, req } = props;
   console.log(profile);
+  console.log(req);
 
 
   return (
@@ -36,19 +37,19 @@ export default function About(props) {
 }
 
 export async function getServerSideProps(context) {
-  const cookie = context.headers.cookie;
   const { req } = context;
   const { origin } = absoluteUrl(req);
 
   const baseApiUrl = `${origin}/api/about`;
 
-  const { token } = getAppCookies(cookie);
+  const { token } = getAppCookies(req);
   const profile = token ? verifyToken(token.split(' ')[1]) : '';
 
   return {
     props: {
       baseApiUrl,
       profile,
+      req,
     },
   };
 }
