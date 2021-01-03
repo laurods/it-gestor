@@ -15,7 +15,7 @@ export default function About() {
 }
 
 About.getInitialProps = async (ctx) => {
-  console.log(ctx);
+  
   //const json = await myGet('https://it-gestor.vercel.app/api/user/findAll', ctx);
   //return {people:json}
 }
