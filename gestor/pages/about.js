@@ -42,13 +42,13 @@ export async function getServerSideProps(context) {
   const { origin } = absoluteUrl(req);  
   const baseApiUrl = `${origin}/api/about`;
 
-  const { token } = getAppCookies(req);  
-  const profile = token ? verifyToken(token.split(' ')[1]) : '';
+  getAppCookies(req);
+  //const { token } = getAppCookies(req);  
+  //const profile = token ? verifyToken(token.split(' ')[1]) : '';
 
   return {
     props: {
-      baseApiUrl,
-      profile,                
+      baseApiUrl,                      
     },
   };
 }

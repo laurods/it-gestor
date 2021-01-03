@@ -37,9 +37,8 @@ export function getAppCookies(req) {
   }else{
       console.log(req);
   }
-  //return parsedItems;
-  console.log(req);
-  console.log('aqui');
+  return parsedItems;
+  
 }
 
 /*
