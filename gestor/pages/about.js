@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
   const { origin } = absoluteUrl(req);  
   const baseApiUrl = `${origin}/api/about`;
 
-  getAppCookies(context);
+  
   //const { token } = getAppCookies(req);  
   //const profile = token ? verifyToken(token.split(' ')[1]) : '';
 
