@@ -8,7 +8,9 @@ export default async (req, res) => {
     let email = data.email;
     try {
         const { db } = await connectToDatabase();
-        const response = await db.collection('users').findOne(email);        
+        const response = await db.collection('users').findOne(email);
+        res.status(200).json(response.ops[0]);
+        /*        
         const user = res.status(200).json(response.ops[0]);
         compare(password, user.password, function(err, result) {
             if(!err && result){
@@ -16,7 +18,8 @@ export default async (req, res) => {
             }else{
                 res.json({message: 'ups, something went wrong!'});
             }
-        });          
+        }); 
+        */         
       } catch {
         print(e);
      }
