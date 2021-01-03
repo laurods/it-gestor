@@ -14,7 +14,7 @@ export default async (req, res) => {
         compare(password, userPassword, function(err, result) {
             if(!err && result){
                 const claims = {sub: response[0]._id, userEmail: response[0].email}
-                const jwt = sign(claims, '4a56384b-61de-4446-bcec-49515bb71a0f');
+                const jwt = sign(claims, '4a56384b-61de-4446-bcec-49515bb71a0f', { expiresIn: '1h' });
 
                 res.json({authTokeb: jwt});
             }else{
