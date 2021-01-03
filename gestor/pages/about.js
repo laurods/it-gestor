@@ -13,8 +13,9 @@ import {
 
 
 export default function About(props) {
-  const { profile } = props;
+  const { profile, myContext } = props;
   console.log(profile);
+  console.log(myContext);
   
 
 
@@ -39,6 +40,7 @@ export default function About(props) {
 export async function getServerSideProps(context) {
   const { req } = context;
   const { origin } = absoluteUrl(req);
+  const myContext = context;
 
   const baseApiUrl = `${origin}/api/about`;
 
@@ -48,7 +50,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       baseApiUrl,
-      profile,      
+      profile,
+      myContext,      
     },
   };
 }
