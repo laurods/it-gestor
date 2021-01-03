@@ -1,5 +1,6 @@
 import { connectToDatabase } from '../../../util/mongodb';
 import { compare } from 'bcrypt';
+import { sign } from 'jsonwebtoken';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
@@ -8,10 +9,11 @@ export default async (req, res) => {
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();
-        const userPassword = response[0].password; 
+        const userPassword = response[0].password;
+
         compare(password, userPassword, function(err, result) {
             if(!err && result){
-                res.json({message: 'OK'});
+                res.json({message: 'OK', user: response[0]});
             }else{
                 res.json({message: 'ups, something went wrong!'});
             }
