@@ -3,9 +3,8 @@ import { compare } from 'bcrypt';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const data = req.body;
-    let password = data.password;
-    let email = data.email;
+    const email = req.body;
+    let password = req.password;   
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').findOne(email);
