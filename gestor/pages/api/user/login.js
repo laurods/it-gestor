@@ -24,6 +24,7 @@ export default async (req, res) => {
                   path: '/'
                 }))
                 res.json({message: 'Welcome back to the app!'});
+                
             }else{
                 res.json({message: 'ups, something went wrong!'});
             }
