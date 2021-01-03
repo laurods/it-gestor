@@ -36,12 +36,13 @@ export default function About(props) {
 }
 
 export async function getServerSideProps(context) {
+  const cookie = context.headers.cookie;
   const { req } = context;
   const { origin } = absoluteUrl(req);
 
   const baseApiUrl = `${origin}/api/about`;
 
-  const { token } = getAppCookies(req);
+  const { token } = getAppCookies(cookie);
   const profile = token ? verifyToken(token.split(' ')[1]) : '';
 
   return {
