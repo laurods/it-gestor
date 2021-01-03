@@ -13,7 +13,10 @@ export default async (req, res) => {
 
         compare(password, userPassword, function(err, result) {
             if(!err && result){
-                res.json({message: 'OK', user: response[0]});
+                const claims = {sub: response[0]._id, userEmail: response[0].email}
+                const jwt = sign(claims, '4a56384b-61de-4446-bcec-49515bb71a0f');
+
+                res.json({authTokeb: jwt});
             }else{
                 res.json({message: 'ups, something went wrong!'});
             }
