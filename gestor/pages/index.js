@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import { uniqueId } from 'lodash';
 import axios from 'axios';
 import Head from 'next/head';
@@ -254,6 +255,9 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }
         {!!show && <ContentWhithSignIn onshowContentWhithSignIn={this.onshowContentWhithSignIn}/> }
