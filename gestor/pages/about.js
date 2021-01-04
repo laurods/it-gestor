@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
-  const json = await res.json();  
+  const json = await resp.json();  
   return {
     props: {
       people: JSON.parse(JSON.stringify(json)),
