@@ -3,7 +3,7 @@ import { connectToDatabase } from '../../../util/mongodb';
 
 
 export const authenticated = (fn) => async (req, res) => {
-    verify(req.headers.authorization, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
+    verify(req.cookies.auth, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
       if(!err && decoded){
         return await fn(req, res);
       }
