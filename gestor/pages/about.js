@@ -19,7 +19,7 @@ User.getInitialProps = async ({ctx}) => {
   const json = await resp.json();
   return{people: json};
 }
-*/
+
 
 export async function getServerSideProps(context) {
   const cookie = context.req.headers.cookie;
@@ -32,5 +32,26 @@ export async function getServerSideProps(context) {
     props: {
       people: JSON.parse(JSON.stringify(people)),
     }, // will be passed to the page component as props
+  }
+}
+*/
+export async function getStaticProps(context) {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const cookie = context.req.headers.cookie;
+  const res = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
+    headers: {
+      cookie: cookie
+    }
+  }); 
+
+  const people = await res.json()
+
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      people,
+    },
   }
 }
