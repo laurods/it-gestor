@@ -2,6 +2,7 @@ import React from 'react';
 import {NextPageContext} from 'next';
 import { myGet } from '../pages/api/myGet';
 import { responsiveFontSizes } from '@material-ui/core';
+import { Router } from 'next/router';
 
 export default function User({people}) {
   console.log(people);
@@ -29,6 +30,10 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
+
+  if(resp.status === 401){
+    Router.replace('/login');
+  }
   const json = await resp.json();  
   return {
     props: {
