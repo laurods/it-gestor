@@ -36,6 +36,11 @@ export async function getServerSideProps(context) {
     return {};
   }
 
+  if(resp.status === 502 && !context.req){
+    Router.replace('/login');
+    return {};
+  }
+
   if(resp.status === 401 && context.req){
     context.res.writeHead(302, {
       Location: 'https://it-gestor.vercel.app/login'
