@@ -10,7 +10,7 @@ export default function User({people}) {
 }
 
 User.getInitialProps = async (ctx) => {
-  const resp = await myGet('https://it-gestor.vercel.app/api/user/findAll', ctx);
+  const resp = await fetch('https://it-gestor.vercel.app/api/user/findAll');
   const json = await resp.json();
   return{people: json};
 }
