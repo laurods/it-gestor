@@ -31,12 +31,12 @@ export async function getServerSideProps(context) {
     }
   });
 
-  if(resp.status === 401 && !context.req){
+  if(resp.status === 502){
     Router.replace('/login');
     return {};
   }
 
-  if(resp.status === 502 && !context.req){
+  if(resp.status === 401 && !context.req){
     Router.replace('/login');
     return {};
   }
