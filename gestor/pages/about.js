@@ -1,6 +1,7 @@
 import React from 'react';
 import {NextPageContext} from 'next';
 import { myGet } from '../pages/api/myGet';
+import { responsiveFontSizes } from '@material-ui/core';
 
 export default function User({people}) {
   console.log(people);
@@ -23,14 +24,13 @@ User.getInitialProps = async ({ctx}) => {
 */
 export async function getServerSideProps(context) {
   const cookie = context.req.headers.cookie;
-  const people = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
+  const res = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
     headers: {
       cookie: cookie
     }
-  });  
+  });
+  const json = await res.json();  
   return {
-    props: {
-      people: JSON.parse(JSON.stringify(people)),
-    }, // will be passed to the page component as props
+   people: json
   }
 }
