@@ -4,14 +4,9 @@ import { myGet } from '../pages/api/myGet';
 
 export default function User() {
 
-  return (
-   
-      <div className="container">
-      Hello people 
+  return <div>Hello People</div>  
       
-      </div>
-  
-  );
+
 }
 /*
 User.getInitialProps = async (NextPageContext) => {
