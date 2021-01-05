@@ -25,14 +25,26 @@ User.getInitialProps = async ({ctx}) => {
 */
 export async function getServerSideProps(context) {
   const cookie = context.req.headers.cookie;
-  const resp = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
+  if(cookie){
+    const resp = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
     headers: {
       cookie: cookie
     }
   });
+  const json = await resp.json();  
+  return {
+    props: {
+      people: JSON.parse(JSON.stringify(json)),
+    },
+  };
 
-  if(resp.status === 502){
+  }else{
     Router.replace('/login');
+  }
+  
+/*
+  if(resp.status === 502){
+   
     return {};
   }
 
@@ -48,10 +60,5 @@ export async function getServerSideProps(context) {
     context.res.end();
     return;
   }
-  const json = await resp.json();  
-  return {
-    props: {
-      people: JSON.parse(JSON.stringify(json)),
-    },
-  };
+  */
 }
