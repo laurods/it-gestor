@@ -43,8 +43,11 @@ export async function getServerSideProps(context) {
 
   const json = await resp.json();
   if (json.error) {
-    
-    Router.push('/');
+    context.res.writeHead(302, {
+      Location: 'https://it-gestor.vercel.app/login'
+    });
+    context.res.end();
+    return;
   }
   
   return {
