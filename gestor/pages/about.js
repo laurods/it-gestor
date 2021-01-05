@@ -25,7 +25,7 @@ User.getInitialProps = async ({ctx}) => {
 */
 export async function getServerSideProps(context) {
   const cookie = context.req.headers.cookie;
-  if(cookie){
+  if(cookie !=='undefined'){
     const resp = await fetch('https://it-gestor.vercel.app/api/user/findAll', {
     headers: {
       cookie: cookie
