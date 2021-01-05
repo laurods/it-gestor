@@ -11,7 +11,7 @@ export default function User({people}) {
 
   console.log(typeof people);
   console.log(people);
-  console.log(Object.keys(people));
+  console.log(Object.keys(people[0]));
 /*
   if(typeof people === 'Object'){
     setLogin(true);
