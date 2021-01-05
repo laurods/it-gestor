@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import {NextPageContext} from 'next';
-import { myGet } from '../pages/api/myGet';
-import { responsiveFontSizes } from '@material-ui/core';
-import { Router } from 'next/router';
-
 
 export default function User({people}) {
   const [login, setLogin] = useState(false);
@@ -52,7 +47,7 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
-  
+
   const json = await resp.json();
   
   return {
@@ -61,11 +56,7 @@ export async function getServerSideProps(context) {
     },
   };
 
-  }else{
-    Router.replace('/login');
   }
-  
-  
 /*
   if(resp.status === 502){
    

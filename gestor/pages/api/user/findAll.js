@@ -1,5 +1,8 @@
 import { verify } from 'jsonwebtoken';
 import { connectToDatabase } from '../../../util/mongodb';
+import Router from 'next/router'
+import { useRouter } from 'next/router'
+
 
 
 export const authenticated = (fn) => async (req, res) => {
@@ -7,8 +10,10 @@ export const authenticated = (fn) => async (req, res) => {
       if(!err && decoded){
         return await fn(req, res);
       }
-  
-      res.status(401).json({message: 'Sorry you are not authenticated'});
+      const router = useRouter();
+      router.push('/login')
+      //res.status(401).json({message: 'Sorry you are not authenticated'});
+
     });
   }
   
