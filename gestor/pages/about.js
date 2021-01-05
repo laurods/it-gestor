@@ -52,11 +52,6 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
-
-  if(resp.status === 401){
-    Router.replace('/login');
-    return {};
-  }
   
   const json = await resp.json();
   
