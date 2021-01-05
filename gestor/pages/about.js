@@ -24,9 +24,7 @@ export default function User({people}) {
   return (
     <div>
     <p>About</p>
-    {people.map((item) => (
-    <p>{item}</p>
-    ))}
+   
     </div>  
   
     )  
