@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 
 export default function User({people}) {
   
@@ -41,6 +42,10 @@ export async function getServerSideProps(context) {
   });
 
   const json = await resp.json();
+  if (json.error) {
+    
+    Router.push('/');
+  }
   
   return {
     props: {
