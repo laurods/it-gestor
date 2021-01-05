@@ -10,8 +10,7 @@ export const authenticated = (fn) => async (req, res) => {
       if(!err && decoded){
         return await fn(req, res);
       }
-      alert('Não Está Logado');
-      //res.status(401).json({message: 'Sorry you are not authenticated'});
+     res.status(401).json({message: 'Sorry you are not authenticated'});
 
     });
   }
