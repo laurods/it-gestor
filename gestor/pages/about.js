@@ -47,7 +47,11 @@ export async function getServerSideProps(context) {
       Location: 'https://it-gestor.vercel.app/login'
     });
     context.res.end();
-    return;
+    return{
+      props:{
+        people: JSON.parse(JSON.stringify(json)),
+      },
+    };
   }
   
   return {
