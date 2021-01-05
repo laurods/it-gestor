@@ -11,7 +11,7 @@ export default function User({people}) {
 
   console.log(typeof people);
   console.log(people);
-  console.log(Object.keys(people[0]));
+  console.log(Object.keys(people));
 /*
   if(typeof people === 'Object'){
     setLogin(true);
@@ -24,6 +24,7 @@ export default function User({people}) {
   return (
     <div>
     <p>About</p>
+    {people.map(item => <p>{item}</p>)}
     </div>  
   
     )  
@@ -50,6 +51,7 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
+  
   const json = await resp.json();  
   return {
     props: {
