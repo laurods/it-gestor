@@ -12,6 +12,7 @@ export default function User({people}) {
   console.log(typeof people);
   console.log(people);
   console.log(Object.keys(people));
+  
 /*
   if(typeof people === 'Object'){
     setLogin(true);
@@ -51,8 +52,14 @@ export async function getServerSideProps(context) {
       cookie: cookie
     }
   });
+
+  if(resp.status === 401){
+    Router.replace('/login');
+    return {};
+  }
   
-  const json = await resp.json();  
+  const json = await resp.json();
+  
   return {
     props: {
       people: JSON.parse(JSON.stringify(json)),
@@ -62,6 +69,7 @@ export async function getServerSideProps(context) {
   }else{
     Router.replace('/login');
   }
+  
   
 /*
   if(resp.status === 502){
