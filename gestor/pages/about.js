@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {NextPageContext} from 'next';
 import { myGet } from '../pages/api/myGet';
 import { responsiveFontSizes } from '@material-ui/core';
 import { Router } from 'next/router';
 
 export default function User({people}) {
-  console.log(people);
-  return <div>Hello People</div>  
-      
+  const [login, setLogin] = useState(false);
+  const [allPeople, setAllPeople] = useState([]);
+
+  if(typeof people === 'Object'){
+    setLogin(true);
+  }
+  if(typeof people === 'Array'){
+    setAllPeople(people);
+  }
+
+
+  return (
+    <div>
+    {!!login &&<p>Por gentileza faça Login</p>}
+    {!!allPeople.length &&<p>Você está Logado</p>}
+    </div>  
+  
+    )  
 
 }
 /*
