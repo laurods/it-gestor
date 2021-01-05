@@ -10,7 +10,8 @@ import Content from '../components/Home/content';
 import TableNF from '../components/Home/tableNF';
 import ContentWhithSignIn from '../components/Home/contentWhithSignIn';
 import SignIn from '../components/screen/Layout/signIn';
-//import Link from 'next/link'
+import Button from '@material-ui/core/Button';
+
 
 class Home extends Component {
   state = {
@@ -255,9 +256,11 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
+        <Button>
         <Link href="/about">
           <a>About</a>
         </Link>
+        </Button>
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }
         {!!show && <ContentWhithSignIn onshowContentWhithSignIn={this.onshowContentWhithSignIn}/> }

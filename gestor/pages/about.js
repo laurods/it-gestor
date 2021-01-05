@@ -9,6 +9,7 @@ export default function User({people}) {
   const [allPeople, setAllPeople] = useState([]);
 
   console.log(typeof people);
+  console.log(people);
 /*
   if(typeof people === 'Object'){
     setLogin(true);
