@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function User({people}) {
-  const [login, setLogin] = useState(false);
-  const [list, setList] = useState([]);
-
+  
   console.log(typeof people);
   console.log(people);
-  console.log(Object.keys(people));
-  
-/*
-  if(typeof people === 'Object'){
-    setLogin(true);
-  }
-  if(typeof people === 'Array'){
-    setAllPeople(people);
-  }
-*/
+  console.log(Object.keys(people));  
 
   return (
     <div>
-    <p>About{people}</p>
+       <p>About</p>
+      <ul>
+        {people.map((item)=> (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+   
    
     </div>  
   
