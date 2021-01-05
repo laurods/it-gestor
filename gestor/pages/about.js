@@ -8,18 +8,19 @@ export default function User({people}) {
   const [login, setLogin] = useState(false);
   const [allPeople, setAllPeople] = useState([]);
 
+  console.log(typeof people);
+/*
   if(typeof people === 'Object'){
     setLogin(true);
   }
   if(typeof people === 'Array'){
     setAllPeople(people);
   }
-
+*/
 
   return (
     <div>
-    {!!login &&<p>Por gentileza faça Login</p>}
-    {!!allPeople.length &&<p>Você está Logado</p>}
+    <p>About</p>
     </div>  
   
     )  
