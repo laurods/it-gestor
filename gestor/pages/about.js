@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export default function User({people}) {
   const [login, setLogin] = useState(false);
-  const [allPeople, setAllPeople] = useState([]);
+  const [list, setList] = useState([]);
 
   console.log(typeof people);
   console.log(people);
@@ -19,7 +19,7 @@ export default function User({people}) {
 
   return (
     <div>
-    <p>About</p>
+    <p>About{people}</p>
    
     </div>  
   
