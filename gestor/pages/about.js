@@ -9,11 +9,7 @@ export default function User({people}) {
   return (
     <div>
        <p>About</p>
-      <ul>
-        {people.map((item)=> (
-          <li>{item}</li>
-        ))}
-      </ul>
+     
 
    
    
