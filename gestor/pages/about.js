@@ -4,12 +4,14 @@ import { myGet } from '../pages/api/myGet';
 import { responsiveFontSizes } from '@material-ui/core';
 import { Router } from 'next/router';
 
+
 export default function User({people}) {
   const [login, setLogin] = useState(false);
   const [allPeople, setAllPeople] = useState([]);
 
   console.log(typeof people);
   console.log(people);
+  console.log(Object.keys(people));
 /*
   if(typeof people === 'Object'){
     setLogin(true);
