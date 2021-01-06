@@ -24,8 +24,8 @@ export async function getServerSideProps(context) {
 
   function getAppCookies() {
     const parsedItems = {};
-    if (context.req.headers.cookies.auth) {
-      const cookiesItems = context.req.headers.cookies.auth.split('; ');
+    if (context.req.headers.cookie.auth) {
+      const cookiesItems = context.req.headers.cookie.auth.split('; ');
       cookiesItems.forEach(cookies => {
         const parsedItem = cookies.split('=');
         parsedItems[parsedItem[0]] = decodeURI(parsedItem[1]);
