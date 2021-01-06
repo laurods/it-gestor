@@ -13,7 +13,8 @@ export default function Blog({profile}) {
 }
 
 export async function getServerSideProps(context) {
- const { token } = getAppCookies();
+ const { req } = context;
+ const { token } = getAppCookies(req);
  const profile = token ? verifyToken(token.split(' ')[1]) : '';
  return {
     props: {      
@@ -22,10 +23,10 @@ export async function getServerSideProps(context) {
   };
 
 
-  function getAppCookies() {
+  function getAppCookies(req) {
     const parsedItems = {};
-    if (context.req.headers.cookie.auth) {
-      const cookiesItems = context.req.headers.cookie.auth.split('; ');
+    if (req.headers.cookie) {
+      const cookiesItems = req.headers.cookie.split('; ');
       cookiesItems.forEach(cookies => {
         const parsedItem = cookies.split('=');
         parsedItems[parsedItem[0]] = decodeURI(parsedItem[1]);
