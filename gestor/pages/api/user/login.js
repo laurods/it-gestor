@@ -24,7 +24,7 @@ export default async (req, res) => {
                   maxAge: 3600,
                   path: '/'
                 }))
-                res.json({message: 'Welcome back to the app!'});
+                res.json({message: 'Welcome back to the app!', jwt:jwt});
                 
             }else{
                 res.json({message: 'ups, something went wrong!'});

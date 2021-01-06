@@ -15,7 +15,7 @@ export default authenticated(async function getUsers (req, res) {
   if (req.method === 'GET') {
     try {             
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').find().toArray();
+      const response = await db.collection('users').find({'email' : req.cookies.auth.userEmail}).toArray();
       res.status(200).json(response);      
     } catch {
       print(e);
