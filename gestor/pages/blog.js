@@ -13,6 +13,35 @@ export default function Blog({profile}) {
 }
 
 export async function getServerSideProps(context) {
+    const cookie = context.req.headers.cookie;
+    if(cookie !=='undefined'){
+      const resp = await fetch('https://it-gestor.vercel.app/api/user/auth', {
+      headers: {
+        cookie: cookie
+      }
+    });
+  
+    const json = await resp.json();
+    if (json.error) {
+      context.res.writeHead(302, {
+        Location: 'https://it-gestor.vercel.app/login'
+      });
+      context.res.end();
+      return{
+        props:{
+          profile: JSON.parse(JSON.stringify(json)),
+        },
+      };
+    }
+    
+    return {
+      props: {
+        profile: JSON.parse(JSON.stringify(json)),
+      },
+    };
+  
+    }
+    /*
  const { req } = context;
  const { token } = getAppCookies(req);
  const profile = token ? verifyToken(token.split(' ')[1]) : '';
@@ -44,5 +73,6 @@ function verifyToken(jwtToken) {
     console.log('e:', e);
     return null;
   }
+  */
 }
 
