@@ -8,6 +8,7 @@ import Router from 'next/router'
 export const authenticated = (fn) => async (req, res) => {
     verify(req.cookies.auth, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
       if(!err && decoded){
+        req.userEmail = decoded.userEmail;  
         return await fn(req, res);
       }
      res.status(401).json({error: 'error', message: 'Sorry you are not authenticated'});
@@ -34,7 +35,7 @@ export default authenticated(async function getUser (req, res) {
     try {             
       const { db } = await connectToDatabase();
       const response = await db.collection('users').find().toArray();
-      res.status(200).json({response: response, cookie: cookie});      
+      res.status(200).json({response: response, email: req.userEmail});      
     } catch {
       print(e);
     }
