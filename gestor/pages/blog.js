@@ -13,7 +13,7 @@ export default function Blog({profile}) {
 }
 
 export async function getServerSideProps(context) {
-    /*
+    
     const cookie = context.req.headers.cookie;
     if(cookie !=='undefined'){
       const resp = await fetch('https://it-gestor.vercel.app/api/user/auth', {
@@ -42,9 +42,9 @@ export async function getServerSideProps(context) {
     };
   
     }
-    */
     
- const { req } = context;
+ /*   
+ const { req } = context; 
  const { token } = getAppCookies(req);
  const profile = token ? verifyToken(token.split(' ')[1]) : '';
  return {
@@ -75,6 +75,6 @@ function verifyToken(jwtToken) {
     console.log('e:', e);
     return null;
   }
-  
+*/  
 }
 
