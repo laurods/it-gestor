@@ -1,5 +1,9 @@
 import { verify } from 'jsonwebtoken';
 import { connectToDatabase } from '../../../util/mongodb';
+import Router from 'next/router'
+
+
+
 
 export const authenticated = (fn) => async (req, res) => {
     verify(req.cookies.auth, '4a56384b-61de-4446-bcec-49515bb71a0f', async function(err, decoded) {
@@ -11,11 +15,26 @@ export const authenticated = (fn) => async (req, res) => {
     });
   }
   
-export default authenticated(async function getUsers (req, res) {
+export default authenticated(async function getUser (req, res) {
+    const cookie = getAppCookies(req);
+
+    function getAppCookies(req) {
+        const parsedItems = {};
+        if (req.headers.cookie) {
+          const cookiesItems = req.headers.cookie.split('; ');
+          cookiesItems.forEach(cookies => {
+            const parsedItem = cookies.split('=');
+            parsedItems[parsedItem[0]] = decodeURI(parsedItem[1]);
+          });
+        }
+        return parsedItems;
+      }
+    console.log(cookie);
+    
   if (req.method === 'GET') {
     try {             
       const { db } = await connectToDatabase();
-      const response = await db.collection('users').find({'email' : req.cookies.auth.userEmail}).toArray();
+      const response = await db.collection('users').find().toArray();
       res.status(200).json(response);      
     } catch {
       print(e);
