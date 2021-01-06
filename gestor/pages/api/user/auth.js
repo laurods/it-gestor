@@ -17,7 +17,6 @@ export const authenticated = (fn) => async (req, res) => {
   
 export default authenticated(async function getUser (req, res) {
     const cookie = getAppCookies(req);
-
     function getAppCookies(req) {
         const parsedItems = {};
         if (req.headers.cookie) {
@@ -29,13 +28,13 @@ export default authenticated(async function getUser (req, res) {
         }
         return parsedItems;
       }
-    console.log(cookie);
+    
     
   if (req.method === 'GET') {
     try {             
       const { db } = await connectToDatabase();
       const response = await db.collection('users').find().toArray();
-      res.status(200).json(response);      
+      res.status(200).json({response: response, cookie: cookie});      
     } catch {
       print(e);
     }
