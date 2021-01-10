@@ -1,6 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import SearchAppBar from '../../components/Main/searchAppBar';
+import HeaderMain from '../../components/Main/headerMain';
 
 
 export default function Index({profile}) {
@@ -10,7 +11,8 @@ export default function Index({profile}) {
     <div>
         <CssBaseline />
         <SearchAppBar />
-        
+        <HeaderMain />
+
        
        
       <p>About</p>
