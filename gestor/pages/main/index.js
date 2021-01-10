@@ -1,6 +1,6 @@
 import React from 'react';
 export default function Index({profile}) {
-    console.log(profile); 
+    console.log(profile.email); 
 
   return (
     <div>
@@ -41,6 +41,6 @@ export async function getServerSideProps(context) {
     };
   
     }
-     
+
 }
 
