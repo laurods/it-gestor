@@ -3,11 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
 export default function ContentMain({email}) {
-   
+   state = {
+    uploadedFiles: [],
+   }
     const handleUpload = (files) => {
         const uploadedFiles = files.map((file) => ({
-            file,
-            id: uniqueId(),
+            file,            
             name: file.name,
             preview: URL.createObjectURL(file),
             progress: 0,
@@ -15,14 +16,20 @@ export default function ContentMain({email}) {
             error: false,
             url: null,
           }));
-        console.log(uploadedFiles);
+          this.setState({
+            uploadedFiles: this.state.uploadedFiles.concat(uploadedFiles),
+          });
+          uploadedFiles.forEach(this.processXML);
     }
     
-    /* Inicio processXML/  
-  processXML = (file) => {
+    /* Inicio processXML*/  
+  const processXML = (file) => {
+      console.log(file.preview);
+      /*
     axios
       .get(file.preview, { responseType: 'document' })
       .then((response) => this.createNF(response.data));
+      */
   };
   /* Fim processXML*/
     
