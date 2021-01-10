@@ -23,7 +23,7 @@ export default function ContentMain({email}) {
     }
     
     /* Inicio processXML*/  
-  const processXML = (file) => {
+  processXML = (file) => {
       console.log(file.preview);
       /*
     axios
