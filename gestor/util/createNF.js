@@ -153,7 +153,7 @@ export default function createNF(data, email){
     /*-------------------------------------------------------*/
      /* Salva no banco de dados */
     
-    axios.post(`https://it-gestor.vercel.app/api/product`, nfList)
+    axios.post(`https://it-gestor.vercel.app/api/product/insertMany`, nfList)
       .then((res) => {
         console.log(res);
         console.log(res.data);
