@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
-    console.log(email);
+    
     return (
       <div>
      <Grid container spacing={3}>

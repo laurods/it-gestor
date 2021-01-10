@@ -13,8 +13,7 @@ export default function Index({profile, email}) {
         <CssBaseline />
         <SearchAppBar />       
         <Container>
-        <Header />
-        <p>Email: {profile.email} </p>
+        <Header email={email} />
         <Content email={email}/>
 
         
