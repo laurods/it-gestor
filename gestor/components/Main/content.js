@@ -5,9 +5,9 @@ import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
     const handleUpload =  (file) => {
-        const url = URL.createObjectURL(file[0]);        
+        const url = URL.createObjectURL(file[0]);
         axios
-      .get(file.preview, { responseType: 'document' })
+      .get(url, { responseType: 'document' })
       .then((response) => createNF(response.data));
     }
      /*Incio CreateNF*/
@@ -16,7 +16,7 @@ export default function ContentMain({email}) {
     console.log(nf);
     }
     /* Inicio processXML/  
-  processXML = (file) => {
+  processXML = (url) => {
      
       /*
     axios
