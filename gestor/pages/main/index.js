@@ -1,9 +1,12 @@
 import React from 'react';
+import SearchAppBar from '../../components/Main/searchAppBar';
+
 export default function Index({profile}) {
     console.log(profile.email); 
 
   return (
     <div>
+        <SearchAppBar />
       <p>About</p>
     </div>  
   
