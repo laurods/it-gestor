@@ -8,8 +8,8 @@ export default function ContentMain({email}) {
         const url = URL.createObjectURL(file[0]);
         axios.get(url, { responseType: 'document' }).then((response) => createNF(response.data));
     }
-     /*Incio CreateNF/
-  createNF = (data) => {
+   /*Incio CreateNF*/
+  const createNF = (data) => {
     const nf = data;
     console.log(nf);
     }
