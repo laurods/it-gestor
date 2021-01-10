@@ -2,34 +2,19 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
-export default function ContentMain({email}) {
-   state = {
-    uploadedFiles: [],
-   }
-    const handleUpload = (files) => {
-        const uploadedFiles = files.map((file) => ({
-            file,            
-            name: file.name,
-            preview: URL.createObjectURL(file),
-            progress: 0,
-            uploaded: false,
-            error: false,
-            url: null,
-          }));
-          this.setState({
-            uploadedFiles: this.state.uploadedFiles.concat(uploadedFiles),
-          });
-          uploadedFiles.forEach(this.processXML);
+export default function ContentMain({email}) { 
+    const handleUpload = (file) => {
+        console.log(file);
     }
     
-    /* Inicio processXML*/  
+    /* Inicio processXML/  
   processXML = (file) => {
-      console.log(file.preview);
+     
       /*
     axios
       .get(file.preview, { responseType: 'document' })
       .then((response) => this.createNF(response.data));
-      */
+      
   };
   /* Fim processXML*/
     
