@@ -2,7 +2,20 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
-export default function ContentMain({email}) { 
+export default function ContentMain({email}) {
+    handleUpload = (file) => {
+        const url = URL.createObjectURL(file);
+        console.log(url);
+        //uploadedFiles.forEach(this.processXML);
+    }
+    
+    /* Inicio processXML/  
+  processXML = (file) => {
+    axios
+      .get(file.preview, { responseType: 'document' })
+      .then((response) => this.createNF(response.data));
+  };
+  /* Fim processXML*/
     
     return (
       <div>
@@ -11,7 +24,7 @@ export default function ContentMain({email}) {
              <span>CNPJ</span>            
             </Grid>  
             <Grid item xs={3}>
-                <Upload />
+                <Upload onUpload={this.handleUpload} />
             </Grid>
             <Grid item xs={5}>
             <span>PRODUTOS </span> 
