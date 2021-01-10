@@ -1,13 +1,20 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
     const handleUpload =  (file) => {
-        const url = URL.createObjectURL(file[0]);
-        console.log(url);
+        const url = URL.createObjectURL(file[0]);        
+        axios
+      .get(file.preview, { responseType: 'document' })
+      .then((response) => this.createNF(response.data));
     }
-    
+     /*Incio CreateNF*/
+  createNF = (data) => {
+    const nf = data;
+    console.log(nf);
+    }
     /* Inicio processXML/  
   processXML = (file) => {
      
