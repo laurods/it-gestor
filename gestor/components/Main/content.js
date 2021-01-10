@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-export default function ContentMain(props) { 
-    console.log(props);
+export default function ContentMain({email}) { 
+    console.log(email);
     return (
       <div>
      <Grid container spacing={3}>

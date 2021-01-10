@@ -7,8 +7,7 @@ import Content from '../../components/Main/content'
 
 
 export default function Index({profile, email}) {
-    console.log(email); 
-
+    
   return (
     <div>
         <CssBaseline />
