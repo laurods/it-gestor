@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
     console.log(email);
@@ -10,7 +11,7 @@ export default function ContentMain({email}) {
              <span>CNPJ</span>            
             </Grid>  
             <Grid item xs={3}>
-            <span>ARRASTE O XML</span>
+                <Upload />
             </Grid>
             <Grid item xs={5}>
             <span>PRODUTOS </span> 
