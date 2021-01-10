@@ -15,7 +15,13 @@ export default function ContentMain({email}) {
     const { data, error } = useSWR(`/api/product/${email}`, ApiAxios);
     return (
       <div>
-        {data?<p>Tem dados</p>:<p>Não tem dados</p>}
+        
+        {data?
+        <ul>{data.data.map((nf)=>(
+          <li>{nf.xprod}</li>
+        ))
+        
+        }</ul>:<p>Não tem dados</p>}
      <Grid container spacing={3}>
             <Grid item xs={2}>
              <span>CNPJ</span>            
