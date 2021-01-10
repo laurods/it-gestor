@@ -3,9 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
-    const handleUpload = (file) => {
-        objetoURL = window.URL.createObjectURL(file);
-        console.log(objetoURL);
+    const handleUpload =  (file) => {
+        const url = URL.createObjectURL(file[0]);
     }
     
     /* Inicio processXML/  
