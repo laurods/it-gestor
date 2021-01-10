@@ -4,7 +4,8 @@ import Upload from '../Upload';
 
 export default function ContentMain({email}) { 
     const handleUpload = (file) => {
-        console.log(file);
+        objetoURL = window.URL.createObjectURL(file);
+        console.log(objetoURL);
     }
     
     /* Inicio processXML/  
