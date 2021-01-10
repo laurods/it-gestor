@@ -5,8 +5,8 @@ import SearchAppBar from '../../components/Main/searchAppBar';
 import HeaderMain from '../../components/Main/headerMain';
 
 
-export default function Index({profile}) {
-    console.log(profile.email); 
+export default function Index({profile, email}) {
+    console.log(email); 
 
   return (
     <div>
@@ -33,6 +33,7 @@ export async function getServerSideProps(context) {
     });
   
     const json = await resp.json();
+
     if (json.error) {
       context.res.writeHead(302, {
         Location: 'https://it-gestor.vercel.app/login'
@@ -45,9 +46,12 @@ export async function getServerSideProps(context) {
       };
     }
     
+
+    const email = JSON.parse(JSON.stringify(json)); 
     return {
       props: {
         profile: JSON.parse(JSON.stringify(json)),
+        email: email,
       },
     };
   
