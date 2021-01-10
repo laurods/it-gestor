@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 export default function HeaderMain() {
-    const { email } = this.props;
+    //const { email } = this.props;
     //console.log(email);
     return (
       <div>

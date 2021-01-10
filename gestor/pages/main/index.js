@@ -11,11 +11,11 @@ export default function Index({profile}) {
     <div>
         <CssBaseline />
         <SearchAppBar />
-        <HeaderMain email={profile.email}/>
+        <HeaderMain />
 
        
        
-      <p>About</p>
+      <p>Email: {profile.email} </p>
     </div>  
   
     )  
