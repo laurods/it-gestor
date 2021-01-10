@@ -6,11 +6,9 @@ import Upload from '../Upload';
 export default function ContentMain({email}) { 
     const handleUpload =  (file) => {
         const url = URL.createObjectURL(file[0]);
-        axios
-      .get(url, { responseType: 'document' })
-      .then((response) => createNF(response.data));
+        axios.get(url, { responseType: 'document' }).then((response) => createNF(response.data));
     }
-     /*Incio CreateNF*/
+     /*Incio CreateNF/
   createNF = (data) => {
     const nf = data;
     console.log(nf);
