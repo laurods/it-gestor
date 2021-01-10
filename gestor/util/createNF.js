@@ -1,6 +1,4 @@
-import { CreateNewFolder } from "@material-ui/icons"
-
-export default function createNF(data){
+export default function createNF(data, email){
     const nf = data;
     const nNF = nf.getElementsByTagName('nNF')[0].innerHTML;    
     const Det = nf.getElementsByTagName('det');
@@ -101,6 +99,7 @@ export default function createNF(data){
     //Criando novo objeto nfList com atributos calculados.
     const nfList = det.det.map((produto, indice) => {
       const row = {
+        email: email,  
         nnf: nNF,
         cnpjEmitente: cnpjEmitente,
         emitente: emitente,

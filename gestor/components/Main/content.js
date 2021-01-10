@@ -7,7 +7,7 @@ import CreateNF from '../../util/createNF';
 export default function ContentMain({email}) { 
     const handleUpload =  (file) => {
         const url = URL.createObjectURL(file[0]);
-        axios.get(url, { responseType: 'document' }).then((response) => CreateNF(response.data));
+        axios.get(url, { responseType: 'document' }).then((response) => CreateNF(response.data, email));
     }
    /*
   const createNF = (data) => {
