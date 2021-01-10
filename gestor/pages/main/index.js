@@ -15,9 +15,10 @@ export default function Index({profile, email}) {
         <SearchAppBar />       
         <Container>
         <Header />
-        <Content />
-
         <p>Email: {profile.email} </p>
+        <Content email={email}/>
+
+        
         </Container>
     </div>  
   

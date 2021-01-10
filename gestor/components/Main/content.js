@@ -2,20 +2,21 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 export default function ContentMain() { 
+    console.log(this.props);
     return (
       <div>
      <Grid container spacing={3}>
             <Grid item xs={2}>
-             <span>2</span>            
+             <span>CNPJ</span>            
             </Grid>  
-            <Grid item xs={5}>
-            <span>5</span>
-            </Grid>
             <Grid item xs={3}>
-            <span>3 </span> 
+            <span>ARRASTE O XML</span>
+            </Grid>
+            <Grid item xs={5}>
+            <span>PRODUTOS </span> 
             </Grid>
             <Grid item xs={2}>
-            <span>2 </span> 
+            <span>NFS </span> 
             </Grid>
         </Grid>      
         
