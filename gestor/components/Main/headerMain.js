@@ -1,0 +1,24 @@
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
+
+export default function HeaderMain() {
+    
+    return (
+      <div>
+     <Grid container spacing={3}>
+        <Grid item xs={1}>
+            
+            </Grid>  
+            <Grid item xs={5}>
+          
+            </Grid>
+            <Grid item xs={3}>
+            <header data-testid="email-field" className="wallet-header">Email: </header> 
+            </Grid>
+        </Grid>      
+        
+      </div>
+    );
+    
+  }

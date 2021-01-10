@@ -1,12 +1,15 @@
 import React from 'react';
 import SearchAppBar from '../../components/Main/searchAppBar';
+import HeaderMain from '../../components/Main/headerMain';
 
 export default function Index({profile}) {
     console.log(profile.email); 
 
   return (
     <div>
+        <CssBaseline />
         <SearchAppBar />
+        <HeaderMain />
       <p>About</p>
     </div>  
   
