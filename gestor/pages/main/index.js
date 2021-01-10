@@ -2,7 +2,8 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import SearchAppBar from '../../components/Main/searchAppBar';
-import HeaderMain from '../../components/Main/headerMain';
+import Header from '../../components/Main/header';
+import Content from '../../components/Main/content'
 
 
 export default function Index({profile, email}) {
@@ -11,9 +12,11 @@ export default function Index({profile, email}) {
   return (
     <div>
         <CssBaseline />
-        <SearchAppBar />
-        <HeaderMain />
+        <SearchAppBar />       
         <Container>
+        <Header />
+        <Content />
+
         <p>Email: {profile.email} </p>
         </Container>
     </div>  

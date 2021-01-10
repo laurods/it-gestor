@@ -1,20 +1,21 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-export default function HeaderMain() {
-    //const { email } = this.props;
-    //console.log(email);
+export default function ContentMain() { 
     return (
       <div>
      <Grid container spacing={3}>
-        <Grid item xs={1}>
-            
+            <Grid item xs={2}>
+             <span>2</span>            
             </Grid>  
             <Grid item xs={5}>
-          
+            <span>5</span>
             </Grid>
             <Grid item xs={3}>
-            <header>Email: </header> 
+            <span>3 </span> 
+            </Grid>
+            <Grid item xs={2}>
+            <span>2 </span> 
             </Grid>
         </Grid>      
         
