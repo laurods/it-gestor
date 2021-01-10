@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Upload from '../Upload';
 
 export default function ContentMain({email}) {
-    handleUpload = (file) => {
+    const handleUpload = (file) => {
         const url = URL.createObjectURL(file);
         console.log(url);
         //uploadedFiles.forEach(this.processXML);
@@ -24,7 +24,7 @@ export default function ContentMain({email}) {
              <span>CNPJ</span>            
             </Grid>  
             <Grid item xs={3}>
-                <Upload onUpload={this.handleUpload} />
+                <Upload onUpload={handleUpload} />
             </Grid>
             <Grid item xs={5}>
             <span>PRODUTOS </span> 
