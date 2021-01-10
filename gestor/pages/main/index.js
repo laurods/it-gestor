@@ -11,7 +11,7 @@ export default function Index({profile}) {
     <div>
         <CssBaseline />
         <SearchAppBar />
-        <HeaderMain />
+        <HeaderMain email={profile.email}/>
 
        
        
