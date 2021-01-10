@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
     }
     
 
-    const email = JSON.parse(JSON.stringify(json)); 
+    const email = JSON.parse(JSON.stringify(json)).email; 
     return {
       props: {
         profile: JSON.parse(JSON.stringify(json)),
