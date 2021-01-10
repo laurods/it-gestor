@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchAppBar from '../../components/Main/searchAppBar';
+
 
 
 export default function Index({profile}) {
@@ -7,8 +7,8 @@ export default function Index({profile}) {
 
   return (
     <div>
-        <CssBaseline />
-        <SearchAppBar />
+        
+       
        
       <p>About</p>
     </div>  
