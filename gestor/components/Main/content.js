@@ -4,7 +4,7 @@ import Upload from '../Upload';
 
 export default function ContentMain({email}) {
    
-    const handleUpload = (file) => {
+    const handleUpload = (files) => {
         const uploadedFiles = files.map((file) => ({
             file,
             id: uniqueId(),
