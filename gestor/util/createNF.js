@@ -148,15 +148,15 @@ export default function createNF(data, email){
       };
       return row;
     });
-    console.table(nfList);
+    //console.table(nfList);
     //Fim Criando novo oobjeto nfList com atributos calculados.
     /*-------------------------------------------------------*/
      /* Salva no banco de dados */
     
     axios.post(`https://it-gestor.vercel.app/api/product/insertMany`, nfList)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        //console.log(res);
+        //console.log(res.data);
       })
       .catch((error) => {
         console.log(error.res.data);
