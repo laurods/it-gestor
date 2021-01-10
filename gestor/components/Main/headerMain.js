@@ -13,7 +13,7 @@ export default function HeaderMain() {
           
             </Grid>
             <Grid item xs={3}>
-            <header data-testid="email-field" className="wallet-header">Email: </header> 
+            <header>Email: </header> 
             </Grid>
         </Grid>      
         

@@ -9,7 +9,7 @@ export default function Index({profile}) {
     <div>
         <CssBaseline />
         <SearchAppBar />
-        <HeaderMain />
+       
       <p>About</p>
     </div>  
   

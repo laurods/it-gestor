@@ -78,7 +78,7 @@ export default function SearchAppBar() {
            
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            TrybeWallet
+            itGestor
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
