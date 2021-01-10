@@ -1,3 +1,4 @@
+import axios from 'axios';
 export default function createNF(data, email){
     const nf = data;
     const nNF = nf.getElementsByTagName('nNF')[0].innerHTML;    
