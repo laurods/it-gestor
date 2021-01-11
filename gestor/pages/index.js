@@ -245,13 +245,15 @@ class Home extends Component {
         <Head>
           <title>itGestor</title>
           <link rel="icon" href="/favicon.ico" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
+          <link rel="stylesheet" href="styles.css"/>
         </Head>
        
         <Container>
+        {!!products.length && <TableNF 
+          products={products} 
+          onShowDashboard={this.onShowDashboard}
+          cnpjDestinatario={cnpjDestinatario}
+          /> }
         <Grid container spacing={3}>         
           {!!showLogin &&<Button>
           <Link href="/login"><a>LOGIN</a></Link>
@@ -269,17 +271,11 @@ class Home extends Component {
            <Grid item xs={12}>
            {!!show && <Content />}            
            </Grid>
-            <Grid item xs={12}>
-           {!!products.length && <TableNF 
-          products={products} 
-          onShowDashboard={this.onShowDashboard}
-          cnpjDestinatario={cnpjDestinatario}
-          /> }
-            </Grid>          
+           
           </Grid>
           
         </Container> 
-        <GlobalStyle />     
+          
       </div>
     );
   }
