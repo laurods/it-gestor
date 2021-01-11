@@ -9,21 +9,23 @@ import Typography from '@material-ui/core/Typography';
 export default function TopTableNF() { 
  
     return (
-      <div>  
-     <Grid container spacing={3}>                       
+      <div>
+          
+    <Paper className={classes.paper}>       
+     <Grid container spacing={3}>                           
             <Grid item xs={3}>
             <WhatsAppIcon />
              (54) 9.9957-2366             
             </Grid>
             <Grid item xs={6}>
             <Typography variant="h6" gutterBottom>
-                Cadastre-se para salvar os produtos. É rápido e grátis!
+                Crie uma conta para salvar os produtos. É rápido e grátis!
             </Typography>
             </Grid>
 
             <Grid item xs={2}>
             <Button variant="contained" disabled  href="/">
-                Cadastrar
+                Criar Conta
             </Button> 
             </Grid>
 
@@ -33,7 +35,7 @@ export default function TopTableNF() {
             </Button> 
             </Grid>
         </Grid>      
-        
+        </Paper>   
       </div>
     );
     
