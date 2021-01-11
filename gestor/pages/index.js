@@ -8,8 +8,7 @@ import Upload from '../components/Upload';
 import Top from '../components/Home/top';
 import Content from '../components/Home/content';
 import TableNF from '../components/Home/tableNF';
-import ContentWhithSignIn from '../components/Home/contentWhithSignIn';
-import SignIn from '../components/screen/Layout/signIn';
+import ContentPhrase from '../components/Home/contentPhrase';
 import Button from '@material-ui/core/Button';
 
 
@@ -18,8 +17,7 @@ class Home extends Component {
     uploadedFiles: [],
     products: [],    
     cnpjDestinatario:'',
-    show: true,
-    showContentWhithSignIn: false,
+    show: true,    
     showDashboard: false,    
   };
   handleUpload = (files) => {
@@ -195,8 +193,7 @@ class Home extends Component {
     this.setState({
       products: this.state.products.concat(nfList),
       cnpjDestinatario: cnpjDestinatario,
-      show: false,
-      showContentWhithSignIn: false,     
+      show: false,         
     });
     /*Fim Atualiza o state*/
     /* Salva no banco de dados */
@@ -232,12 +229,6 @@ class Home extends Component {
       products: [],      
     });
   }
-  onshowContentWhithSignIn = () =>{
-    this.setState({
-      showContentWhithSignIn: true,
-    });
-    
-  }
 
   componentWillUnmount() {
     this.state.uploadedFiles.forEach((file) =>
@@ -257,14 +248,13 @@ class Home extends Component {
           />
         </Head>
         <Button>
-        <Link href="/about">
-          <a>About</a>
+        <Link href="/login">
+          <a>LOGIN</a>
         </Link>
         </Button>
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }
-        {!!show && <ContentWhithSignIn onshowContentWhithSignIn={this.onshowContentWhithSignIn}/> }
-        {!!showContentWhithSignIn && <SignIn /> }   
+        {!!show && <ContentPhrase/> }
         {!!show && <Content />} 
         {!!products.length && <TableNF 
         products={products} 

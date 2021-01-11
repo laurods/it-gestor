@@ -12,6 +12,8 @@ export default function ContentMain({email}) {
         const url = URL.createObjectURL(file[0]);
         axios.get(url, { responseType: 'document' }).then((response) => CreateNF(response.data, email));
     }
+
+ 
     const { data, error } = useSWR(`/api/product/${email}`, ApiAxios);
     return (
       <div>
