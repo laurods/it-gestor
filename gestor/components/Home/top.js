@@ -1,13 +1,20 @@
-
+import Typography from '@material-ui/core/Typography';
 export default function Top() {
 
     return (
         <main>       
-          <h1 className="title">            
-            <a href="#">itGestor</a>
-          </h1>
-          <h2 className="subtitle">Calcule os custos das mercadorias</h2>
-          <h2 className="subtitle">Lucre mais comprando melhor!</h2>
+          <div className="title">
+          <Typography variant="h1" component="h2" gutterBottom>
+                 itGestor
+          </Typography>            
+         
+          <Typography variant="h2" gutterBottom>
+          Calcule os custos das mercadorias
+          </Typography>
+          <Typography variant="h2" gutterBottom>
+          Aumente os lucros precificando seus produtos de forma eficiente!
+          </Typography>  
+          </div>         
         </main>
     );
 }
