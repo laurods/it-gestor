@@ -158,7 +158,7 @@ export default function TableNF(props) {
 
 
     return (
-        <div>
+        <div className="tableNF">
           <Container>
           <SearchBar 
             searchText = {searchText}

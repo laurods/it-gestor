@@ -143,6 +143,9 @@ html, body, #root{
  .home-subtitle{
      text-align: center;
  }
+ .tableNF{
+     background-color: white;;
+ }
 
  @media (max-width: 600px) {
   .grid {
