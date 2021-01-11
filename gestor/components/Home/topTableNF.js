@@ -10,17 +10,21 @@ export default function TopTableNF() {
  
     return (
       <div>  
-     <Grid container spacing={3}>             
+     <Grid container spacing={3}>
+            <Grid item xs={1}>
+                       
+            </Grid>             
             <Grid item xs={3}>
             <WhatsAppIcon />
              (54) 9.9957-2366             
             </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={5}>
             <Typography variant="h6" gutterBottom>
                 Cadastre-se para salvar os produtos. É rápido e grátis!
             </Typography>
             </Grid>
-            <Grid item xs={1}>
+
+            <Grid item xs={2}>
             <Button variant="contained" disabled  href="/">
                 Cadastrar
             </Button> 

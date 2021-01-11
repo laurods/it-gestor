@@ -10,6 +10,7 @@ import Content from '../components/Home/content';
 import TableNF from '../components/Home/tableNF';
 import ContentPhrase from '../components/Home/contentPhrase';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 
 class Home extends Component {
@@ -18,7 +19,7 @@ class Home extends Component {
     products: [],    
     cnpjDestinatario:'',
     show: true,    
-    showDashboard: false,    
+    showLogin: false,    
   };
   handleUpload = (files) => {
     const uploadedFiles = files.map((file) => ({
@@ -247,7 +248,8 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        {!!show &&<Button>
+        <Container>        
+        {!!showLogin &&<Button>
         <Link href="/login"><a>LOGIN</a></Link>
         </Button>
         }
@@ -261,8 +263,7 @@ class Home extends Component {
         cnpjDestinatario={cnpjDestinatario}
         /> }
         
-
-        <GlobalStyle />
+        </Container>
       </div>
     );
   }
