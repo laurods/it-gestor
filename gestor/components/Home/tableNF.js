@@ -15,6 +15,7 @@ import TableRowProduct from '../screen/Layout/tableRowProduct';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save'
+import TopTableNF from '../Home/topTableNF';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -163,10 +164,8 @@ export default function TableNF(props) {
             searchText = {searchText}
             onSearchTextChange = {onSearchTextChange} 
             />
-          <Grid container spacing={3}> 
-           
-           
-          
+          <TopTableNF />
+          <Grid container spacing={3}>
             <Grid item xs={3}>
             <TextField
             id="valor-frete"
