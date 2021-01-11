@@ -31,6 +31,7 @@ export default function TableNF(props) {
     const [searchText, setSearchText] = useState('');
     const [isFiltered, setIsFiltered] = useState(false);
     const [allFilteredProducts, setAllFilteredProducts] = useState('');
+    const [showButtom, setShowButtom] = useState(false);
 
     const handleCustoFrete = () =>{
       const valor = document.getElementById('valor-frete').value;
@@ -162,20 +163,11 @@ export default function TableNF(props) {
             searchText = {searchText}
             onSearchTextChange = {onSearchTextChange} 
             />
-          <Grid container spacing={3}>  
-            <Grid item xs={2}>
-            <TextField
-              variant="outlined"            
-              required
-              fullWidth
-              id="email"
-              label="Informe seu e-mail"
-              name="email"
-              autoComplete="email"
-            />  
-            </Grid>
-
-            <Grid item xs={2}>
+          <Grid container spacing={3}> 
+           
+           
+          
+            <Grid item xs={3}>
             <TextField
             id="valor-frete"
             label="Valor do Frete" 
@@ -187,7 +179,7 @@ export default function TableNF(props) {
             />
             </Grid>
 
-            <Grid item xs={2}>
+            <Grid item xs={3}>
             <Button
             variant="contained"
             color="default"
@@ -195,12 +187,24 @@ export default function TableNF(props) {
             onClick={handleCustoFrete}
             
             >
-            Atualizar Custos
+            Calcular Frete
             </Button>
             </Grid>
 
-            
-
+            {!!showButtom &&
+            <Grid item xs={2}>
+            <TextField
+              variant="outlined"            
+              required
+              fullWidth
+              id="email"
+              label="Informe seu e-mail"
+              name="email"
+              autoComplete="email"
+            />  
+            </Grid>
+            }
+            {!!showButtom &&
             <Grid item xs={2}>
             <Button
             variant="contained"
@@ -213,7 +217,7 @@ export default function TableNF(props) {
             Salvar Produtos
             </Button>
             </Grid>
-            
+          }
             <Grid item xs={12}>
               <Paper className={classes.paper}>
               <TableContainer component={Paper}>

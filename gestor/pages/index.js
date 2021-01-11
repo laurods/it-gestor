@@ -247,11 +247,10 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <Button>
-        <Link href="/login">
-          <a>LOGIN</a>
-        </Link>
+        {!!show &&<Button>
+        <Link href="/login"><a>LOGIN</a></Link>
         </Button>
+        }
         {!!show && <Top /> }
         {!!show && <Upload onUpload={this.handleUpload} /> }
         {!!show && <ContentPhrase/> }
