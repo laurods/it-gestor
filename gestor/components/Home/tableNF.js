@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
@@ -156,12 +157,16 @@ export default function TableNF(props) {
 
     return (
         <div>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>         
-            <SearchBar 
+          <Container>
+          <SearchBar 
             searchText = {searchText}
             onSearchTextChange = {onSearchTextChange} 
-            />         
+            />
+          <Grid item xs={12}>         
+            
+
+        <Grid container spacing={3}>
+                   
           </Grid>
           
           <Grid item xs={2}>
@@ -243,6 +248,7 @@ export default function TableNF(props) {
           </Grid>
               
         </Grid>
+        </Container>
       </div>
     );
 }
