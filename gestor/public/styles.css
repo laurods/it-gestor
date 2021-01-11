@@ -11,6 +11,7 @@ html, body, #root{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: 'center';
+    opacity: 0.2;
 }
 
   .container {

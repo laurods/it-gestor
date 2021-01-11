@@ -1,4 +1,5 @@
-
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import Typography from '@material-ui/core/Typography';
 export default function Content() {
 
     return (
@@ -13,7 +14,8 @@ export default function Content() {
               <strong>
                 Fale Conosco <br />                
               </strong>
-              <strong>WhatsApp (54) 9.9957-2366</strong>
+              <WhatsAppIcon />
+              <strong>(54) 9.9957-2366</strong>
              
             </div>
             <a
