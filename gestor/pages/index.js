@@ -11,6 +11,8 @@ import TableNF from '../components/Home/tableNF';
 import ContentPhrase from '../components/Home/contentPhrase';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 
 class Home extends Component {
@@ -248,22 +250,32 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <Container>        
-        {!!showLogin &&<Button>
-        <Link href="/login"><a>LOGIN</a></Link>
-        </Button>
-        }
-        {!!show && <Top /> }
-        {!!show && <Upload onUpload={this.handleUpload} /> }
-        {!!show && <ContentPhrase/> }
-        {!!show && <Content />} 
-        {!!products.length && <TableNF 
-        products={products} 
-        onShowDashboard={this.onShowDashboard}
-        cnpjDestinatario={cnpjDestinatario}
-        /> }
-
-        </Container>
+        <CssBaseline/>
+        <Container>
+        <Grid container spacing={3}>         
+          {!!showLogin &&<Button>
+          <Link href="/login"><a>LOGIN</a></Link>
+          </Button>
+          }
+          <Grid item xs={12}>
+          {!!show && <Top /> }            
+           </Grid>
+           <Grid item xs={8}>
+           {!!show && <Upload onUpload={this.handleUpload} /> }            
+           </Grid>
+           <Grid item xs={10}>
+           {!!show && <ContentPhrase/> }            
+           </Grid>
+           <Grid item xs={12}>
+           {!!show && <Content />}            
+           </Grid>         
+          </Grid>
+        </Container> 
+          {!!products.length && <TableNF 
+          products={products} 
+          onShowDashboard={this.onShowDashboard}
+          cnpjDestinatario={cnpjDestinatario}
+          /> }      
       </div>
     );
   }
