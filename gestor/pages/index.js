@@ -250,7 +250,7 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <CssBaseline/>
+        <GlobalStyle />
         <Container>
         <Grid container spacing={3}>         
           {!!showLogin &&<Button>
@@ -270,12 +270,13 @@ class Home extends Component {
            {!!show && <Content />}            
            </Grid>         
           </Grid>
-        </Container> 
           {!!products.length && <TableNF 
           products={products} 
           onShowDashboard={this.onShowDashboard}
           cnpjDestinatario={cnpjDestinatario}
-          /> }      
+          /> } 
+        </Container> 
+              
       </div>
     );
   }
