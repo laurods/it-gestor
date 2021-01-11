@@ -162,90 +162,84 @@ export default function TableNF(props) {
             searchText = {searchText}
             onSearchTextChange = {onSearchTextChange} 
             />
-          <Grid item xs={12}>         
-            
+          <Grid container spacing={3}>  
+            <Grid item xs={2}>
+            <TextField
+              variant="outlined"            
+              required
+              fullWidth
+              id="email"
+              label="Informe seu e-mail"
+              name="email"
+              autoComplete="email"
+            />  
+            </Grid>
 
-        <Grid container spacing={3}>
-                   
-          </Grid>
-          
-          <Grid item xs={2}>
-          <TextField
-            variant="outlined"            
+            <Grid item xs={2}>
+            <TextField
+            id="valor-frete"
+            label="Valor do Frete" 
+            size="normal"
             required
             fullWidth
-            id="email"
-            label="Informe seu e-mail"
-            name="email"
-            autoComplete="email"
-          />  
-          </Grid>
+            defaultValue="0.00"
+            variant="outlined"                              
+            />
+            </Grid>
 
-          <Grid item xs={2}>
-          <TextField
-          id="valor-frete"
-          label="Valor do Frete" 
-          size="normal"
-          required
-          fullWidth
-          defaultValue="0.00"
-          variant="outlined"                              
-          />
-          </Grid>
+            <Grid item xs={2}>
+            <Button
+            variant="contained"
+            color="default"
+            size="large"
+            onClick={handleCustoFrete}
+            
+            >
+            Atualizar Custos
+            </Button>
+            </Grid>
 
-          <Grid item xs={2}>
-          <Button
-          variant="contained"
-          color="default"
-          size="large"
-          onClick={handleCustoFrete}
-          
-          >
-          Atualizar Custos
-          </Button>
-          </Grid>
+            
 
-          
-
-          <Grid item xs={2}>
-          <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          onClick={()=>{saveLoginAndProducts()}}
-          startIcon={<SaveIcon />}
-          
-          >
-          Salvar Produtos
-          </Button>
-          </Grid>
-          
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-            <TableContainer component={Paper}>
-                  <Table aria-label="collapsible table">
-                      <TableHead>
-                      <TableRow>
-                          <TableCell />
-                          <TableCell>Descrição</TableCell>
-                          <TableCell align="right">Custo Un</TableCell>
-                          <TableCell align="right">Cod. Barras</TableCell>         
-                      </TableRow>
-                      </TableHead>                   
-                       <TableBody>
-                         {isFiltered?
-                         allFilteredProducts.map((row) => (
-                           <TableRowProduct key={row.id} row={row} />
-                       )):
-                       allProducts.map((row) => (
-                        <TableRowProduct key={row.id} row={row} />
-                      ))
-                      }
-                      </TableBody>
-                  </Table>
-                  </TableContainer>
-            </Paper>
-          </Grid>
+            <Grid item xs={2}>
+            <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={()=>{saveLoginAndProducts()}}
+            startIcon={<SaveIcon />}
+            
+            >
+            Salvar Produtos
+            </Button>
+            </Grid>
+            
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+              <TableContainer component={Paper}>
+                    <Table aria-label="collapsible table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell>Descrição</TableCell>
+                            <TableCell align="right">Custo Un</TableCell>
+                            <TableCell align="right">Cod. Barras</TableCell>         
+                        </TableRow>
+                        </TableHead>                   
+                        <TableBody>
+                          {isFiltered?
+                          allFilteredProducts.map((row) => (
+                            <TableRowProduct key={row.id} row={row} />
+                        )):
+                        allProducts.map((row) => (
+                          <TableRowProduct key={row.id} row={row} />
+                        ))
+                        }
+                        </TableBody>
+                    </Table>
+                    </TableContainer>
+              </Paper>
+            </Grid>
               
         </Grid>
         </Container>
