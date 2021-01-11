@@ -237,7 +237,7 @@ class Home extends Component {
     );
   }
   render() {
-    const {products, cnpjDestinatario, show, showContentWhithSignIn} = this.state;    
+    const {products, cnpjDestinatario, show, showLogin} = this.state;    
     return (
       <div className="container">
         <Head>
@@ -262,7 +262,7 @@ class Home extends Component {
         onShowDashboard={this.onShowDashboard}
         cnpjDestinatario={cnpjDestinatario}
         /> }
-        
+
         </Container>
       </div>
     );
