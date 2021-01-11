@@ -166,7 +166,7 @@ export default function TableNF(props) {
             />
           <TopTableNF />
           <Grid container spacing={3}>
-          <Paper className={classes.paper}>
+         
             <Grid item xs={3}>
             <TextField
             id="valor-frete"
@@ -218,7 +218,7 @@ export default function TableNF(props) {
             </Button>
             </Grid>
           }
-          </Paper>
+         
             <Grid item xs={12}>
               <Paper className={classes.paper}>
               <TableContainer component={Paper}>

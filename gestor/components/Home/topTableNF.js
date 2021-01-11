@@ -11,7 +11,7 @@ export default function TopTableNF() {
     return (
       <div>
           
-    <Paper className={classes.paper}>       
+        
      <Grid container spacing={3}>                           
             <Grid item xs={3}>
             <WhatsAppIcon />
@@ -35,7 +35,7 @@ export default function TopTableNF() {
             </Button> 
             </Grid>
         </Grid>      
-        </Paper>   
+       
       </div>
     );
     
