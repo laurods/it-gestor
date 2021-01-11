@@ -7,12 +7,13 @@ export default function Top() {
           <Typography variant="h1" component="h2" gutterBottom>
                  itGestor
           </Typography>            
-         
-          <Typography variant="h2" gutterBottom>
+         </div>
+         <div>
+          <Typography variant="h4" gutterBottom>
           Calcule os custos das mercadorias
           </Typography>
-          <Typography variant="h2" gutterBottom>
-          Aumente os lucros precificando seus produtos de forma eficiente!
+          <Typography variant="h4" gutterBottom>
+          Aumente as vendas precificando seus produtos de forma eficiente!
           </Typography>  
           </div>         
         </main>
