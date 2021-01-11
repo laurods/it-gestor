@@ -275,7 +275,7 @@ class Home extends Component {
           </Grid>
           
         </Container> 
-          
+       <CssBaseline />   
       </div>
     );
   }
