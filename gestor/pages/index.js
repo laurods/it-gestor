@@ -250,7 +250,7 @@ class Home extends Component {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <GlobalStyle />
+       
         <Container>
         <Grid container spacing={3}>         
           {!!showLogin &&<Button>
@@ -260,23 +260,26 @@ class Home extends Component {
           <Grid item xs={12}>
           {!!show && <Top /> }            
            </Grid>
-           <Grid item xs={8}>
+           <Grid item xs={12}>
            {!!show && <Upload onUpload={this.handleUpload} /> }            
            </Grid>
-           <Grid item xs={10}>
+           <Grid item xs={12}>
            {!!show && <ContentPhrase/> }            
            </Grid>
            <Grid item xs={12}>
            {!!show && <Content />}            
-           </Grid>         
-          </Grid>
-          {!!products.length && <TableNF 
+           </Grid>
+            <Grid item xs={12}>
+           {!!products.length && <TableNF 
           products={products} 
           onShowDashboard={this.onShowDashboard}
           cnpjDestinatario={cnpjDestinatario}
-          /> } 
+          /> }
+            </Grid>          
+          </Grid>
+          
         </Container> 
-              
+        <GlobalStyle />     
       </div>
     );
   }
