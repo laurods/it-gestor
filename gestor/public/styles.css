@@ -16,6 +16,10 @@ html, body, #root{
     flex-direction: column;
     /*justify-content: center;*/
     /*align-items: center;*/
+    background-image:url('credit_card.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 'center';
    }
 
   main {
@@ -134,6 +138,9 @@ html, body, #root{
 
   .logo {
     height: 1em;
+ }
+ .home-subtitle{
+     text-align: center;
  }
 
  @media (max-width: 600px) {
