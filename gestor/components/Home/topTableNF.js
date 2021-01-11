@@ -1,5 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -9,16 +12,27 @@ export default function TopTableNF() {
       <div>  
      <Grid container spacing={3}>
             <Grid item xs={2}>
-             <span>Whats: (54) 9.9957-2366</span>            
+                         
             </Grid>  
             <Grid item xs={3}>
-            <span>3</span>    
+            <WhatsAppIcon />
+             (54) 9.9957-2366             
             </Grid>
             <Grid item xs={5}>
-            <span>5Planos </span> 
+            <Typography variant="h6" gutterBottom>
+                Cadastre-se para salvar os produtos. É rápido e grátis!
+            </Typography>
             </Grid>
-            <Grid item xs={2}>
-            <span>2Sair </span> 
+            <Grid item xs={1}>
+            <Button variant="contained" color="primary" href="/">
+                Cadastrar
+            </Button> 
+            </Grid>
+
+            <Grid item xs={1}>
+            <Button variant="contained" href="/">
+                Sair
+            </Button> 
             </Grid>
         </Grid>      
         
