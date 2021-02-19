@@ -5,8 +5,9 @@ import cookie from 'cookie';
 
 export default async (req, res) => { 
   if (req.method === 'POST') {
-    const email = req.body.email;
-    let password = req.body.password;
+    const user = req.body.user
+    const email = user.email;
+    let password = user.password;
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();      
