@@ -12,10 +12,11 @@ export default async (req, res) => {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();      
         const userPassword = response[0].password;
-      
+        res.status(200).json(response);
+        /*
         compare(password, userPassword, function(err, result) {
             if(!err && result){
-              /*
+            
                 const claims = {sub: response[0]._id, userEmail: response[0].email}
                 const jwt = sign(claims, '4a56384b-61de-4446-bcec-49515bb71a0f', { expiresIn: '1h' });
                 
@@ -26,15 +27,15 @@ export default async (req, res) => {
                   maxAge: 3600,
                   path: '/'
                 }))
-                */
+                
                 //res.json({message: 'Welcome back to the app!', jwt:jwt});            
-                res.status(200).json(response);
+                //res.status(200).json(response);
                 
             }else{
                 res.json({message: 'ups, something went wrong!'});
             }
         }); 
-                 
+         */        
       } catch {
         print(e);
      }
