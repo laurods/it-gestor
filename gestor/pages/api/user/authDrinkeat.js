@@ -4,9 +4,11 @@ import { sign } from 'jsonwebtoken';
 import cookie from 'cookie';
 
 export default async (req, res) => {
+  console.log('aki');
   if (req.method === 'POST') {
     const email = req.body.email;
-    let password = req.body.password;   
+    let password = req.body.password;
+    console.log(email);   
     try {
         const { db } = await connectToDatabase();
         const response = await db.collection('users').find({'email': email}).toArray();        
