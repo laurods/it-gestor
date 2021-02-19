@@ -26,7 +26,7 @@ export default async (req, res) => {
                   path: '/'
                 }))
                 */
-                //res.json({message: 'Welcome back to the app!', jwt:jwt});
+                //res.json({message: 'Welcome back to the app!', jwt:jwt});            
                 res.status(200).json(response);
                 
             }else{
