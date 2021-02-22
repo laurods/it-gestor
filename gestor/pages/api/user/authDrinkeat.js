@@ -8,7 +8,8 @@ const allowCors = fn => async (req, res) => {
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   )
-  if (req.method === 'OPTIONS') {
+  if (req.method === 'POST') {
+    res.status(200).json({message: 'Welcome back to the app!'});
     res.status(200).end()
     return
   }
