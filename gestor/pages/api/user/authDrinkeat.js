@@ -1,17 +1,23 @@
-export default async (req, res) => { 
-  // Allow Origins
-  res.header("Access-Control-Allow-Origin", "*");
-  // Allow Methods
-  res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-  // Allow Headers
-  res.header("Access-Control-Allow-Headers", "Origin, Accept, Content-Type, Authorization");
-  // Handle preflight, it must return 200
-  if (req.method === 'POST') {  
-    res.status(200).json({message: 'Welcome back to the app!'});
-    
-  } else {
-    rees.status(200).json({message: 'Error'});
+const allowCors = fn => async (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
   }
+  return await fn(req, res)
+}
 
+const handler = (req, res) => {
+  const d = new Date()
+  res.end(d.toString())
+}
 
-};
+module.exports = allowCors(handler)
