@@ -1,3 +1,5 @@
+import { connectToDatabase } from '../../../util/mongodb';
+
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -9,10 +11,15 @@ const allowCors = fn => async (req, res) => {
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   )
   if (req.method === 'POST') {
-    const user = req.body.userData;    
+    const user = req.body.userData;
+    const { db } = await connectToDatabase();
+    const response = await db.collection('users').find({'email': user.email}).toArray();
+    const userPassword = response[0].password;
+
     res.status(200).json({
       message: 'Welcome back to the app!',
       user,
+      password: userPassword
     });
     res.status(200).end()
     return
