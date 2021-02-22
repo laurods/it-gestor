@@ -6,11 +6,11 @@ export default async (req, res) => {
   // Allow Headers
   res.header("Access-Control-Allow-Headers", "Origin, Accept, Content-Type, Authorization");
   // Handle preflight, it must return 200
-  if (req.method === 'POST') {
-    res.json({message: 'Welcome back to the app!'});
+  if (req.method === 'POST') {  
+    res.status(200).json({message: 'Welcome back to the app!'});
     
   } else {
-    res.json({message: 'error!'});
+    rees.status(200).json({message: 'Error'});
   }
 
 
