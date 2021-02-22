@@ -9,7 +9,11 @@ const allowCors = fn => async (req, res) => {
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   )
   if (req.method === 'POST') {
-    res.status(200).json({message: 'Welcome back to the app!'});
+    const user = req.body.userTeste;    
+    res.status(200).json({
+      message: 'Welcome back to the app!',
+      user,
+    });
     res.status(200).end()
     return
   }
