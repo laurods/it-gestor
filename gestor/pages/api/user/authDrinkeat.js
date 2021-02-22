@@ -14,12 +14,11 @@ const allowCors = fn => async (req, res) => {
     const user = req.body.userData;
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
-    const userPassword = response[0].password;
+    const email = response[0].email;
 
     res.status(200).json({
       message: 'Welcome back to the app!',
-      user,
-      password: userPassword
+      email,
     });
     res.status(200).end()
     return
