@@ -13,18 +13,21 @@ const allowCors = fn => async (req, res) => {
   )
   if (req.method === 'POST') {
     const user = req.body.userData;
+    const password = user.password
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
-    const password = response[0].password;
+    const userPassword = response[0].password;
 
-    compare(password, user.password, function(err, result) {
+    compare(password, userPassword, function(err, result) {
       if(!err && result){                 
         res.status(200).json({
           message: 'Welcome back to the app!',
           email,
           password,
         });
+        res.status(200).end()
+        return
           
       }else{
         res.status(200).json({
@@ -40,10 +43,10 @@ const allowCors = fn => async (req, res) => {
       email,
       password,
     });
-    */
+    
     res.status(200).end()
     return
-    
+    */
   }
   return await fn(req, res)
 }
