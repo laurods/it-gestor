@@ -21,7 +21,7 @@ const allowCors = fn => async (req, res) => {
 
     compare(password, userPassword, function(err, result) {
       if(!err && result){                 
-        res.json({
+        res.status(200).json({
           message: 'Welcome back to the app!',
           email,
           password,
@@ -29,7 +29,7 @@ const allowCors = fn => async (req, res) => {
         
           
       }else{
-        res.json({
+        res.status(200).json({
           message: 'ups, something went wrong!',
           email:'',
           password:''
