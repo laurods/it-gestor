@@ -1,5 +1,4 @@
 import { connectToDatabase } from '../../../util/mongodb';
-import { compare } from 'bcrypt';
 
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
