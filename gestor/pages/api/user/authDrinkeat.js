@@ -1,4 +1,5 @@
 import { connectToDatabase } from '../../../util/mongodb';
+import { compare } from 'bcrypt';
 
 const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
@@ -15,13 +16,33 @@ const allowCors = fn => async (req, res) => {
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
-
+    const password = response[0].password;
+        compare(user.password, password, function(err, result) {
+          if(!err && result){
+            res.status(200).json({
+              message: 'Welcome back to the app!',
+              email,
+            });
+            res.status(200).end()
+            return
+              
+          }else{
+            res.status(200).json({
+              message: 'ups, something went wrong!',
+              email:null
+            });
+            res.status(200).end()
+            return
+          }
+      }); 
+    /*
     res.status(200).json({
       message: 'Welcome back to the app!',
       email,
     });
     res.status(200).end()
     return
+    */
   }
   return await fn(req, res)
 }
