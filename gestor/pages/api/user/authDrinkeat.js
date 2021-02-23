@@ -16,7 +16,7 @@ const allowCors = fn => async (req, res) => {
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
-    const password = response[0].password;
+    //const password = response[0].password;
     /*
         compare(user.password, password, function(err, result) {
           if(!err && result){
