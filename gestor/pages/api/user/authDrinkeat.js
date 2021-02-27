@@ -15,10 +15,13 @@ const allowCors = fn => async (req, res) => {
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
-    const userPassword = response[0].password; 
-    
+    const userPassword = response[0].password;
+     if(!response){
+      return res.status(400).json({message:'User not found'})
+     } 
+
       if (!await compare(password, userPassword)){
-       res.status(400).send({message:'User or Password Invalid'})
+       res.status(400).json({message:'User or Password Invalid'})
       } 
       res.status(200).json({
         message: 'Welcome back to the app!',
