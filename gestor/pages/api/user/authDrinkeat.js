@@ -17,7 +17,7 @@ const allowCors = fn => async (req, res) => {
     const email = response[0].email;
     const userPassword = response[0].password; 
      if(!response) {
-      res.status(400).send({message:'User not found'})
+      return res.status(400).send({message:'User not found'})
      } 
 
       if (!await compare(password, userPassword)){
