@@ -17,7 +17,7 @@ const allowCors = fn => async (req, res) => {
     const email = response[0].email;
     const userPassword = response[0].password; 
 
-      if (!await compare(password, response.password)){
+      if (!await compare(password, userPassword)){
        res.status(400).send({message:'User or Password Invalid'})
       } 
       res.status(200).json({
