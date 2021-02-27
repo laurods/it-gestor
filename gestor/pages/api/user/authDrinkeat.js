@@ -18,7 +18,7 @@ const allowCors = fn => async (req, res) => {
     const userPassword = response[0].password;   
 
       if (!await compare(password, userPassword)){
-       return res.status(400).send({message:'User or Password Invalid'})
+       res.status(400).send({message:'User or Password Invalid'})
       } 
       res.status(200).json({
         message: 'Welcome back to the app!',
