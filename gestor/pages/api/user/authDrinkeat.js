@@ -33,7 +33,7 @@ const allowCors = fn => async (req, res) => {
 
 
     }catch(error){
-      return res.status(400).send({message:'User not found'})
+      return res.status(200).json({message:'User not found'})
     }
     
     
