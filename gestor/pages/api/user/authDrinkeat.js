@@ -19,9 +19,9 @@ const allowCors = fn => async (req, res) => {
     const email = response[0].email;
     const userPassword = response[0].password;
 
+    /*
 
-
-    await compare(password, userPassword, function(err, result) {
+    compare(password, userPassword, function(err, result) {
       if(!err && result){                 
         res.status(200).json({
           message: 'Welcome back to the app!',
@@ -38,13 +38,14 @@ const allowCors = fn => async (req, res) => {
         });
       }
   }); 
-    /*
+  */
+    
     res.status(200).json({
       message: 'Welcome back to the app!',
       email,
       password,
     });
-    */
+    
     res.status(200).end()
     return
     
