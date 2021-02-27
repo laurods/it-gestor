@@ -19,7 +19,9 @@ const allowCors = fn => async (req, res) => {
     const email = response[0].email;
     const userPassword = response[0].password;
 
-    compare(password, userPassword, function(err, result) {
+
+
+    await compare(password, userPassword, function(err, result) {
       if(!err && result){                 
         res.status(200).json({
           message: 'Welcome back to the app!',
