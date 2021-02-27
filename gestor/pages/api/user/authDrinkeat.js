@@ -17,6 +17,7 @@ const allowCors = fn => async (req, res) => {
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
     const userPassword = response[0].password;
+    console.log(response);
      if(!response){
       return res.status(400).json({message:'User not found'})
      } 
