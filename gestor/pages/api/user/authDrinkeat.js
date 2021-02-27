@@ -23,13 +23,11 @@ const allowCors = fn => async (req, res) => {
         res.status(200).json({
           message: 'Welcome back to the app!',
           email,
-          password,
         })
       } else{
         res.status(200).json({
           message: 'ups, something went wrong!',
-          email:'',
-          password:''
+          email:false,
         })
 
       } 
