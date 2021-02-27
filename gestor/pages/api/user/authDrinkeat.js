@@ -31,13 +31,7 @@ const allowCors = fn => async (req, res) => {
         })
 
       } 
-    /*
-    res.status(200).json({
-      message: 'Welcome back to the app!',
-      email,
-      password,
-    });
-    */
+    
     res.status(200).end()
     return
     
