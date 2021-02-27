@@ -17,11 +17,11 @@ const allowCors = fn => async (req, res) => {
     const { db } = await connectToDatabase();
     const response = await db.collection('users').find({'email': user.email}).toArray();
     const email = response[0].email;
-    //const userPassword = response[0].password;
+    const userPassword = response[0].password;
 
-    /*
+    
 
-    compare(password, userPassword, function(err, result) {
+    await compare(password, userPassword, function(err, result) {
       if(!err && result){                 
         res.status(200).json({
           message: 'Welcome back to the app!',
@@ -38,14 +38,14 @@ const allowCors = fn => async (req, res) => {
         });
       }
   }); 
-  */
-    
+  
+    /*
     res.status(200).json({
       message: 'Welcome back to the app!',
       email,
       password,
     });
-    
+    */
     res.status(200).end()
     return
     
